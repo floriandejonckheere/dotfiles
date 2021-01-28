@@ -110,6 +110,13 @@ export EDITOR=nano
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls='ls --color=auto'
+alias dmesg='dmesg --color=always'
+alias grep='grep --color=always -n'
+alias GREP='/usr/bin/grep'
+alias less='less --hilite-search --raw-control-chars'
+
+# Docker Swarm aliases
 alias dstd="docker stack deploy"
 alias dstls="docker stack ls"
 alias dstps="docker stack ps"
@@ -139,8 +146,29 @@ alias dcfgi="docker config inspect"
 alias dcfgls="docker config ls"
 alias dcfgrm="docker config rm"
 
+# Function overrides
+function pacman() {
+  case $1 in
+    -S | -D | -S[^sih]* | -R* | -U* | -Fy)
+      /usr/bin/sudo /usr/bin/pacman "$@" ;;
+    *)
+      /usr/bin/pacman "$@" ;;
+    esac
+}
+
+function systemctl() {
+  case $1 in
+    start | stop | restart | enable | disable)
+      /usr/bin/sudo /usr/bin/systemctl "$@" ;;
+    *)
+      /usr/bin/systemctl "$@" ;;
+  esac
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # zmv
 autoload zmv
+
+export PATH="${PATH}:~/.bin/"
