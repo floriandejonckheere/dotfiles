@@ -1,0 +1,60 @@
+[global_config]
+  dbus = False
+  tab_position = hidden
+  scroll_tabbar = True
+  title_transmit_fg_color = "#776363"
+  title_transmit_bg_color = "#e7e8eb"
+  title_inactive_fg_color = "#9a8d8c"
+  title_inactive_bg_color = "#e7e8eb"
+  enabled_plugins = ,
+  suppress_multiple_term_dialog = True
+  always_split_with_profile = True
+  title_font = Sans 1
+[keybindings]
+  go_prev = <Primary><Shift>b
+  go_up = <Alt>i
+  go_down = <Alt>k
+  go_left = <Alt>j
+  go_right = <Alt>l
+  split_horiz = <Shift><Super>d
+  split_vert = <Super>d
+  new_terminator = None
+  layout_launcher = None
+  help = None
+[profiles]
+  [[default]]
+    visible_bell = True
+    background_color = "#fdf6e3"
+    background_darkness = 0.8
+    cursor_color = "#676767"
+    font = MesloLGS NF 10
+    foreground_color = "#657b83"
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    login_shell = True
+    use_custom_command = True
+    custom_command = env TERM=xterm-256color zsh
+    use_system_font = False
+  [[dark]]
+    visible_bell = True
+    background_color = "#002b36"
+    background_darkness = 0.8
+    cursor_color = "#cecece"
+    font = MesloLGS NF 10
+    foreground_color = "#839496"
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    use_custom_command = True
+    custom_command = env TERM=xterm-256color zsh
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
