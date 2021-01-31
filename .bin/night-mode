@@ -1,0 +1,100 @@
+#!/usr/bin/env ruby
+#
+# Night Mode - toggle light/dark theme
+#
+
+require "optparse"
+
+# For icon names, see gtk3-icon-browser
+CONFIGURATION = {
+  day: {
+    themes: {
+      gtk: "Orchis-red-compact",
+      xfwm: "Orchis-red-light-compact",
+    },
+    icon: "weather-clear",
+  },
+  night: {
+    themes: {
+      gtk: "Orchis-red-dark-compact",
+      xfwm: "Orchis-red-dark-compact",
+    },
+    icon: "weather-clear-night",
+  },
+}
+
+# DAY = "08:00"..."18:00"
+
+
+class Application
+  attr_reader :options
+
+  def initialize(args = ARGV)
+    @options = {
+      # TODO: current state
+      mode: CONFIGURATION.keys.find { |k| CONFIGURATION[k][:themes][:gtk] == gtk_theme }.to_s,
+    }
+
+    parser = OptionParser.new do |o|
+      o.on("-t", "--toggle", "Toggle") do
+        options[:mode] = (options[:mode] == "day" ? "night" : "day")
+      end
+
+      o.on("-m", "--mode=MODE", "Set day or night mode") do |arg|
+        options[:mode] = arg
+      end
+    end
+
+    parser.banner = "#{$PROGRAM_NAME} [options]"
+    parser.on_tail "-h", "--help", "Show help" do
+      puts parser
+      exit 1
+    end
+
+    parser.parse!(args, into: @options)
+  end
+
+  def start
+    return if gtk_theme == mode[:themes][:gtk]
+
+    # Set GTK theme
+    self.gtk_theme = mode[:themes][:gtk]
+    self.xfwm_theme = mode[:themes][:xfwm]
+  end
+
+  def to_s
+    <<~HERE
+      <tool>Click to toggle night mode</tool>
+      <icon>#{mode[:icon]}</icon>
+    HERE
+  end
+
+  private
+
+  def mode
+    CONFIGURATION.fetch(options[:mode].to_sym)
+  end
+
+  def gtk_theme
+    `xfconf-query --channel xsettings -p /Net/ThemeName`.strip
+  end
+
+  def gtk_theme=(value)
+    `xfconf-query --channel xsettings -p /Net/ThemeName -s #{value}`
+  end
+
+  def xfwm_theme=(value)
+    `xfconf-query --channel xfwm4 -p /general/theme -s #{value}`
+  end
+end
+
+application = Application.new
+application.start
+puts application
+
+# Set Redshift
+# Set Terminator theme
+# Set Firefox theme
+# Set Chrome theme
+# Set RubyMine theme
+# Set keyboard backlight
