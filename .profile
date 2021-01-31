@@ -9,3 +9,6 @@ TERMINAL="terminator"
 
 # Load key bindings
 xbindkeys
+
+# Terminate session on Ctrl+Alt+Backspace
+setxkbmap -option terminate:ctrl_alt_bksp
