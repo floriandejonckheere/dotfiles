@@ -65,8 +65,21 @@
 #"rxvt"
 #  Control + b:2 + Release
 
-# Audio Play/Pause
-#"xdotool key XF86AudioPlay"
+# Media Play/Pause
+"xdotool keyup Super_L key XF86AudioPlay"
+  Mod4 + Down + Release
+
+# Media Stop
+"xdotool keyup Super_L key XF86AudioStop"
+  Mod4 + Up + Release
+
+# Media Previous
+"xdotool keyup Super_L key XF86AudioPrev"
+  Mod4 + Left + Release
+
+# Media Play/Pause
+"xdotool keyup Super_L key XF86AudioNext"
+  Mod4 + Right + Release
 
 # Launch terminal
 "terminator"
@@ -74,7 +87,7 @@
 
 # Launch file manager
 "thunar"
-  Mod4 + F  
+  Mod4 + F
 
 ##################################
 # End of xbindkeys configuration #
