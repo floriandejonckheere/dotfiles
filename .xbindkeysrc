@@ -89,6 +89,10 @@
 "thunar"
   Mod4 + F
 
+# Kill program
+"xkill"
+  Control + Alt + Escape
+
 ##################################
 # End of xbindkeys configuration #
 ##################################
