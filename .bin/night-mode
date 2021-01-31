@@ -3,28 +3,24 @@
 # Night Mode - toggle light/dark theme
 #
 
+# TODO: set Redshift
+# TODO: set Terminator theme
+# TODO: set IntelliJ theme (https://plugins.jetbrains.com/plugin/14076-auto-dark-mode)
+# TODO: set keyboard backlight
+
 require "optparse"
 
 # For icon names, see gtk3-icon-browser
 CONFIGURATION = {
   day: {
-    themes: {
-      gtk: "Orchis-red-compact",
-      xfwm: "Orchis-red-light-compact",
-    },
+    theme: "Orchis-red-light-compact",
     icon: "weather-clear",
   },
   night: {
-    themes: {
-      gtk: "Orchis-red-dark-compact",
-      xfwm: "Orchis-red-dark-compact",
-    },
+    theme: "Orchis-red-dark-compact",
     icon: "weather-clear-night",
   },
 }
-
-# DAY = "08:00"..."18:00"
-
 
 class Application
   attr_reader :options
@@ -32,7 +28,7 @@ class Application
   def initialize(args = ARGV)
     @options = {
       # TODO: current state
-      mode: CONFIGURATION.keys.find { |k| CONFIGURATION[k][:themes][:gtk] == gtk_theme }.to_s,
+      mode: CONFIGURATION.keys.find { |k| CONFIGURATION[k][:theme] == gtk_theme }.to_s,
     }
 
     parser = OptionParser.new do |o|
@@ -55,17 +51,18 @@ class Application
   end
 
   def start
-    return if gtk_theme == mode[:themes][:gtk]
+    return if gtk_theme == mode[:theme]
 
     # Set GTK theme
-    self.gtk_theme = mode[:themes][:gtk]
-    self.xfwm_theme = mode[:themes][:xfwm]
+    self.gtk_theme = mode[:theme]
+    self.xfwm_theme = mode[:theme]
   end
 
   def to_s
     <<~HERE
       <tool>Click to toggle night mode</tool>
       <icon>#{mode[:icon]}</icon>
+      <iconclick>#{$PROGRAM_NAME} --toggle</iconclick>
     HERE
   end
 
@@ -91,10 +88,3 @@ end
 application = Application.new
 application.start
 puts application
-
-# Set Redshift
-# Set Terminator theme
-# Set Firefox theme
-# Set Chrome theme
-# Set RubyMine theme
-# Set keyboard backlight
