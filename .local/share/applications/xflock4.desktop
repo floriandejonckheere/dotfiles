@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Lock screen
+GenericName=Lock screen
+Comment=Lock screen
+Exec=xflock4
+Icon=lock
+Terminal=false
+Type=Application
