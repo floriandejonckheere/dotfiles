@@ -93,6 +93,14 @@
 "xkill"
   Control + Alt + Escape
 
+# Increase display brightness
+"/home/florian/.bin/brightness --step=+10"
+  XF86MonBrightnessUp
+
+# Decrease display brightness
+"/home/florian/.bin/brightness --step=-10"
+  XF86MonBrightnessDown
+
 ##################################
 # End of xbindkeys configuration #
 ##################################

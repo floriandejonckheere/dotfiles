@@ -1,0 +1,86 @@
+#!/usr/bin/env ruby
+#
+# Brightness - smoothly set brightness
+#
+
+require "optparse"
+
+# File to store notification id
+FILE = "/tmp/volume-notification-id"
+
+class Brightness
+  attr_reader :options
+
+  def initialize(args = ARGV)
+    @options = {
+      current: brightness,
+      target: nil,
+    }
+
+    parser = OptionParser.new do |o|
+      o.on("-b", "--brightness=BRIGHTNESS", Float, "Set brightness to level") do |arg|
+        options[:target] = [arg, 100].min
+      end
+
+      o.on("-s", "--step=STEP", Float, "Increase/decrease brightness by STEP levels") do |arg|
+        options[:target] = [[options[:current] + (arg), 100].min, 0].max
+      end
+    end
+
+    parser.banner = "#{$PROGRAM_NAME} [options]"
+    parser.on_tail "-h", "--help", "Show help" do
+      puts parser
+      exit 1
+    end
+
+    parser.parse!(args, into: @options)
+
+    unless options[:target]
+      puts parser
+      exit 1
+    end
+  end
+
+  def start
+    puts "#{options[:current]} => #{options[:target]}"
+
+    return if options[:target].nil?
+
+    id = File.exists?(FILE) ? File.read(FILE).to_i : nil
+
+    # Send notification before setting brightness
+    notification_id = notify(id)
+
+    File.write(FILE, notification_id) if notification_id
+
+    # Set brightness
+    self.brightness = options[:target]
+  end
+
+  private
+
+  def brightness
+    `xbacklight`.strip.to_f
+  end
+
+  def brightness=(value)
+    `xbacklight -set #{value}`
+  end
+
+  def notify(id = nil)
+    command = <<~COMMAND
+      notify-send
+        --hint int:value:#{options[:target]}
+        --hint string:synchronous:volume
+        --expire-time 100
+        --icon display-brightness-symbolic
+        #{id ? "--replace-id=#{id}" : nil}
+        --print-id
+        volume
+    COMMAND
+
+    `#{command.gsub("\n", " ")}`
+  end
+end
+
+Brightness.new.start
