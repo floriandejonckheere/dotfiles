@@ -37,19 +37,6 @@
     use_custom_command = True
     custom_command = env TERM=xterm-256color zsh
     use_system_font = False
-  [[dark]]
-    visible_bell = True
-    background_color = "#300a24"
-    background_darkness = 0.8
-    cursor_color = "#cecece"
-    font = MesloLGS NF 10
-    foreground_color = "#ffffff"
-    scrollbar_position = hidden
-    scrollback_infinite = True
-    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
-    use_custom_command = True
-    custom_command = env TERM=xterm-256color zsh
-    use_system_font = False
   [[Afterglow]]
     visible_bell = True
     background_color = "#212121"
@@ -65,32 +52,17 @@
     use_custom_command = True
     custom_command = env TERM=xterm-256color zsh
     use_system_font = False
-  [[Bright Lights]]
+  [[OneHalfLight]]
     visible_bell = True
-    background_color = "#191919"
+    background_color = "#fafafa"
     background_darkness = 0.8
-    cursor_color = "#f34b00"
+    cursor_color = "#bfceff"
     font = MesloLGS NF 10
-    foreground_color = "#b3c9d7"
+    foreground_color = "#383a42"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#191919:#ff355b:#b7e876:#ffc251:#76d4ff:#ba76e7:#6cbfb5:#c2c8d7:#191919:#ff355b:#b7e876:#ffc251:#76d5ff:#ba76e7:#6cbfb5:#c2c8d7"
-    login_shell = True
-    use_custom_command = True
-    custom_command = env TERM=xterm-256color zsh
-    use_system_font = False
-  [[Material]]
-    visible_bell = True
-    background_color = "#eaeaea"
-    background_darkness = 0.8
-    cursor_color = "#16afca"
-    font = MesloLGS NF 10
-    foreground_color = "#232322"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_infinite = True
-    palette = "#212121:#b7141f:#457b24:#f6981e:#134eb2:#560088:#0e717c:#efefef:#424242:#e83b3f:#7aba3a:#ffea2e:#54a4f3:#aa4dbc:#26bbd1:#d9d9d9"
+    palette = "#383a42:#e45649:#50a14f:#c18401:#0184bc:#a626a4:#0997b3:#fafafa:#4f525e:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#ffffff"
     login_shell = True
     use_custom_command = True
     custom_command = env TERM=xterm-256color zsh
