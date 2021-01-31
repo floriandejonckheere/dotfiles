@@ -6,3 +6,6 @@ xprop -root -f _NET_NUMBER_OF_DESKTOPS 32c -set _NET_NUMBER_OF_DESKTOPS 15
 
 # Set environment
 TERMINAL="terminator"
+
+# Load key bindings
+xbindkeys

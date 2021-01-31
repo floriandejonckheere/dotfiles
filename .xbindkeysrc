@@ -67,7 +67,14 @@
 
 # Audio Play/Pause
 #"xdotool key XF86AudioPlay"
-  
+
+# Launch terminal
+"terminator"
+  Mod4 + T
+
+# Launch file manager
+"thunar"
+  Mod4 + F  
 
 ##################################
 # End of xbindkeys configuration #
