@@ -171,6 +171,13 @@ function systemctl() {
 # zmv
 autoload zmv
 
+# Start keyring daemon
+if [ -n "$DESKTOP_SESSION" ]; then
+  eval $(gnome-keyring-daemon --start)
+  export SSH_AUTH_SOCK
+fi
+
+# PATH modifications
 export PATH="${PATH}:~/.bin/"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
