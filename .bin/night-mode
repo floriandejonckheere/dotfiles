@@ -41,12 +41,11 @@ class Application
 
   def initialize(args = ARGV)
     @options = {
-      # TODO: current state
       mode: CONFIGURATION.keys.find { |k| CONFIGURATION[k][:theme][:gtk] == gtk_theme }.to_s,
     }
 
     parser = OptionParser.new do |o|
-      o.on("-t", "--toggle", "Toggle") do
+      o.on("-t", "--toggle", "Toggle day/night") do
         options[:mode] = (options[:mode] == "day" ? "night" : "day")
       end
 
