@@ -13,11 +13,17 @@ require "optparse"
 # For icon names, see gtk3-icon-browser
 CONFIGURATION = {
   day: {
-    theme: "Orchis-red-light-compact",
+    theme: {
+      gtk: "Orchis-red-light-compact",
+      wm: "Materia-light",
+    },
     icon: "weather-clear",
   },
   night: {
-    theme: "Orchis-red-dark-compact",
+    theme: {
+      gtk: "Orchis-red-dark-compact",
+      wm: "Materia-dark",
+    },
     icon: "weather-clear-night",
   },
 }
@@ -28,7 +34,7 @@ class Application
   def initialize(args = ARGV)
     @options = {
       # TODO: current state
-      mode: CONFIGURATION.keys.find { |k| CONFIGURATION[k][:theme] == gtk_theme }.to_s,
+      mode: CONFIGURATION.keys.find { |k| CONFIGURATION[k][:theme][:gtk] == gtk_theme }.to_s,
     }
 
     parser = OptionParser.new do |o|
@@ -51,11 +57,14 @@ class Application
   end
 
   def start
-    return if gtk_theme == mode[:theme]
+    return if gtk_theme == mode[:theme][:gtk]
 
     # Set GTK theme
-    self.gtk_theme = mode[:theme]
-    self.xfwm_theme = mode[:theme]
+    self.gtk_theme = mode[:theme][:gtk]
+
+    # Set window manager theme
+    self.xfwm_theme = mode[:theme][:gtk]
+    self.compiz_theme = mode[:theme][:wm]
   end
 
   def to_s
@@ -82,6 +91,10 @@ class Application
 
   def xfwm_theme=(value)
     `xfconf-query --channel xfwm4 -p /general/theme -s #{value}`
+  end
+
+  def compiz_theme=(value)
+    `gsettings set org.gnome.desktop.wm.preferences theme #{value}`
   end
 end
 
