@@ -16,6 +16,7 @@ CONFIGURATION = {
     theme: {
       gtk: "Orchis-red-light-compact",
       wm: "Materia-light",
+      icon: "Tela-circle-red",
     },
     icon: "weather-clear",
   },
@@ -23,6 +24,7 @@ CONFIGURATION = {
     theme: {
       gtk: "Orchis-red-dark-compact",
       wm: "Materia-dark",
+      icon: "Tela-circle-red-dark",
     },
     icon: "weather-clear-night",
   },
@@ -62,6 +64,9 @@ class Application
     # Set GTK theme
     self.gtk_theme = mode[:theme][:gtk]
 
+    # Set icon theme
+    self.icon_theme = mode[:theme][:icon]
+
     # Set window manager theme
     self.xfwm_theme = mode[:theme][:gtk]
     self.compiz_theme = mode[:theme][:wm]
@@ -87,6 +92,10 @@ class Application
 
   def gtk_theme=(value)
     `xfconf-query --channel xsettings -p /Net/ThemeName -s #{value}`
+  end
+
+  def icon_theme=(value)
+    `xfconf-query --channel xsettings -p /Net/IconThemeName -s #{value}`
   end
 
   def xfwm_theme=(value)
