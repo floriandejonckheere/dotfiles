@@ -2,11 +2,15 @@
 #
 # Night Mode - toggle light/dark theme
 #
+# Please make sure to install the following packages:
+#  - light
+#  - compiz or xfwm4
+#  - orchis-theme-git
+#  - materia-theme-git
 
 # TODO: set Redshift
 # TODO: set Terminator theme
 # TODO: set IntelliJ theme (https://plugins.jetbrains.com/plugin/14076-auto-dark-mode)
-# TODO: set keyboard backlight
 
 require "optparse"
 
@@ -18,6 +22,7 @@ CONFIGURATION = {
       wm: "Materia-light",
       icon: "Tela-circle-red",
     },
+    keyboard: 0,
     icon: "weather-clear",
   },
   night: {
@@ -26,6 +31,7 @@ CONFIGURATION = {
       wm: "Materia-dark",
       icon: "Tela-circle-red-dark",
     },
+    keyboard: 100,
     icon: "weather-clear-night",
   },
 }
@@ -70,6 +76,9 @@ class Application
     # Set window manager theme
     self.xfwm_theme = mode[:theme][:gtk]
     self.compiz_theme = mode[:theme][:wm]
+
+    # Set keyboard backlight
+    self.keyboard_backlight = mode[:keyboard]
   end
 
   def to_s
@@ -104,6 +113,10 @@ class Application
 
   def compiz_theme=(value)
     `gsettings set org.gnome.desktop.wm.preferences theme #{value}`
+  end
+
+  def keyboard_backlight=(value)
+    `light -s "sysfs/leds/tpacpi::kbd_backlight" 100`
   end
 end
 
