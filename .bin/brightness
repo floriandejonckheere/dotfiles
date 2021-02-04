@@ -6,7 +6,7 @@
 require "optparse"
 
 # File to store notification id
-FILE = "/tmp/volume-notification-id"
+FILE = File.join(Dir.home, ".cache/volume-notification-id")
 
 class Brightness
   attr_reader :options
