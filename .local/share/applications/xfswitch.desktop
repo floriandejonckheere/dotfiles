@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Switch user
+GenericName=Switch user
+Comment=Switch user
+Exec=dm-tool switch-to-greeter
+Icon=system-users
+Terminal=false
+Type=Application
