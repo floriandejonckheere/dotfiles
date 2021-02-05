@@ -5,9 +5,9 @@
   <property name="Default" type="empty">
     <property name="eDP1" type="string" value="Laptop">
       <property name="Active" type="bool" value="true"/>
-      <property name="EDID" type="string" value="80e7e02b01a3ca45664c2b63698dd870ff51983d"/>
+      <property name="EDID" type="string" value="995eaf77790a7f3e0f48aff45102cf5d953ac113"/>
       <property name="Resolution" type="string" value="1920x1080"/>
-      <property name="RefreshRate" type="double" value="60.011884"/>
+      <property name="RefreshRate" type="double" value="60.001038"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
       <property name="Primary" type="bool" value="true"/>
@@ -58,9 +58,9 @@
   <property name="Fallback" type="empty">
     <property name="eDP1" type="string" value="Laptop">
       <property name="Active" type="bool" value="true"/>
-      <property name="EDID" type="string" value="80e7e02b01a3ca45664c2b63698dd870ff51983d"/>
+      <property name="EDID" type="string" value="995eaf77790a7f3e0f48aff45102cf5d953ac113"/>
       <property name="Resolution" type="string" value="1920x1080"/>
-      <property name="RefreshRate" type="double" value="60.011884"/>
+      <property name="RefreshRate" type="double" value="60.001038"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
       <property name="Primary" type="bool" value="true"/>
