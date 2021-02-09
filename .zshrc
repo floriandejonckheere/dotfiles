@@ -68,7 +68,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
-unsetopt share_history
 HISTSIZE=9999999999
 HISTFILE=~/.zsh_history
 
@@ -85,6 +84,7 @@ plugins=(git bundler rsync rvm screen docker docker-compose rails zsh-autosugges
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+unsetopt share_history
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
