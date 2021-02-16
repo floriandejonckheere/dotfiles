@@ -115,7 +115,12 @@ alias dmesg='dmesg --color=always'
 alias grep='grep --color=always -n'
 alias GREP='/usr/bin/grep'
 alias less='less --hilite-search --raw-control-chars'
+
+# Git aliases
 alias grbiom='git rebase -i origin/master'
+alias gcn='git commit -v --no-edit --no-verify'
+alias gcnn!='git commit -v --no-edit --amend --no-verify'
+
 
 # Docker Swarm aliases
 alias dstd="docker stack deploy"
