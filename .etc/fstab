@@ -1,0 +1,21 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/mapper/azathoth-root
+UUID=988a85d1-7d5d-48fa-b87e-08b243b7fc98	/         	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
+
+# /dev/mapper/azathoth-swap
+UUID=ecd8ecfe-1fc0-4ea9-a7fb-224912b135f8	swap		swap		defaults 0 0
+
+# /dev/nvme0n1p1
+UUID=EBF7-CF31   			   	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/mapper/azathoth-home
+UUID=75f62140-4232-4567-aa06-64106855f44e	/home     	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
+
+# /dev/mapper/azathoth-data
+UUID=691a8043-eda3-4aa3-a133-d7576f811082	/mnt/data    	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/,x-gvfs-show	0 0
+
+# /dev/mapper/secret
+UUID=a0a46681-8a66-484f-a76c-2a20bd911a05	/mnt/secret	btrfs		rw,relatime,ssd,space_cache,subvolid=5,subvol=/,noauto,nofail,x-gvfs-show 0 0
