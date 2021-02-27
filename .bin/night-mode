@@ -115,7 +115,7 @@ class Application
   end
 
   def keyboard_backlight=(value)
-    `light -s "sysfs/leds/tpacpi::kbd_backlight" 100`
+    `light -s "sysfs/leds/tpacpi::kbd_backlight" -S #{value}`
   end
 end
 
