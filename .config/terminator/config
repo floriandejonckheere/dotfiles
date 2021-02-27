@@ -37,6 +37,7 @@
     use_custom_command = True
     custom_command = env TERM=xterm-256color zsh --login
     use_system_font = False
+    copy_on_selection = True
   [[Afterglow]]
     visible_bell = True
     background_color = "#212121"
@@ -52,6 +53,7 @@
     use_custom_command = True
     custom_command = env TERM=xterm-256color zsh --login
     use_system_font = False
+    copy_on_selection = True
   [[OneHalfLight]]
     visible_bell = True
     background_color = "#fafafa"
@@ -67,6 +69,7 @@
     use_custom_command = True
     custom_command = env TERM=xterm-256color zsh --login
     use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child1]]]
