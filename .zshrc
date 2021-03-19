@@ -116,6 +116,8 @@ alias grep='grep --color=always -n'
 alias GREP='/usr/bin/grep'
 alias less='less --hilite-search --raw-control-chars'
 
+alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
+
 # Git aliases
 alias grbiom='git rebase -i origin/master'
 alias gcn='git commit -v --no-edit --no-verify'
