@@ -311,7 +311,7 @@ visualizer_in_stereo = yes
 ##   available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (10)[]{a} (6f)[green]{NE} (60)[white]{t|f:Title} (6)[blue]{y} (20)[cyan]{b} (7f)[magenta]{l}
 #
 ##### various settings #####
 #
