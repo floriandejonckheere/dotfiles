@@ -190,3 +190,10 @@ export PATH="${PATH}:~/.bin/"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Make NVM available
+source /usr/share/nvm/init-nvm.sh
+
+# Private variables
+export MA_ENDPOINT=https://ma.cache.headbang.re
+export WEBMOCK_ALLOW_HOST=ma.cache.headbang.re
