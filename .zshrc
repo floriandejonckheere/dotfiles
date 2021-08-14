@@ -197,3 +197,4 @@ source /usr/share/nvm/init-nvm.sh
 # Private variables
 export MA_ENDPOINT=https://ma.cache.headbang.re
 export WEBMOCK_ALLOW_HOST=ma.cache.headbang.re
+export ENV=development
