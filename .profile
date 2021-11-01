@@ -15,3 +15,6 @@ setxkbmap -option terminate:ctrl_alt_bksp
 
 # Use right alt (Alt Gr) as Compose key
 setxkbmap -option compose:ralt
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
