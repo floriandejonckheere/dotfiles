@@ -19,7 +19,8 @@
         "SynapseLaunchpadPlugin",
         "SynapseHybridSearchPlugin",
         "SynapseZeitgeistPlugin",
-        "SynapseSshPlugin"
+        "SynapseSshPlugin",
+        "SynapsePassPlugin"
       ]
     }
   }
