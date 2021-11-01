@@ -12,3 +12,6 @@ xbindkeys
 
 # Terminate session on Ctrl+Alt+Backspace
 setxkbmap -option terminate:ctrl_alt_bksp
+
+# Use right alt (Alt Gr) as Compose key
+setxkbmap -option compose:ralt
