@@ -19,4 +19,13 @@
 	<patterns>*</patterns>
 	<directories/>
 </action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Concatenate PDF</name>
+	<unique-id>1646563522218530-1</unique-id>
+	<command>pdftk %F cat output %n-concatenated.pdf</command>
+	<description>Concatenate selected PDF files</description>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
 </actions>
