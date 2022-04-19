@@ -198,3 +198,4 @@ source /usr/share/nvm/init-nvm.sh
 export MA_ENDPOINT=https://ma.cache.headbang.re
 export WEBMOCK_ALLOW_HOST=ma.cache.headbang.re
 export ENV=development
+export OVERCOMMIT_COLOR=1
