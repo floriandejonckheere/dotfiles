@@ -28,4 +28,13 @@
 	<patterns>*.pdf</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon>akonadiconsole</icon>
+	<name>Execute script...</name>
+	<unique-id>1652720571730206-1</unique-id>
+	<command>/usr/bin/terminator -e &apos;%f; echo -n &quot;Process exited with status $?. Press any key to exit.&quot;; read -sk&apos;</command>
+	<description>Execute script in a terminal window</description>
+	<patterns>*.sh</patterns>
+	<other-files/>
+</action>
 </actions>
