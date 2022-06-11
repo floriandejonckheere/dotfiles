@@ -181,10 +181,12 @@ function systemctl() {
 autoload zmv
 
 # Start keyring daemon
-if [ -n "$DESKTOP_SESSION" ]; then
-  eval $(gnome-keyring-daemon)
-  export SSH_AUTH_SOCK
-fi
+#if [ -n "$DESKTOP_SESSION" ]; then
+#  eval $(gnome-keyring-daemon)
+#  export SSH_AUTH_SOCK
+#fi
+
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
 # PATH modifications
 export PATH="${PATH}:~/.bin/"
