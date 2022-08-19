@@ -198,7 +198,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 source /usr/share/nvm/init-nvm.sh
 
 # Private variables
-export MA_ENDPOINT=https://ma.cache.headbang.re
-export WEBMOCK_ALLOW_HOST=ma.cache.headbang.re
 export ENV=development
 export OVERCOMMIT_COLOR=1
