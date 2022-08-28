@@ -86,7 +86,7 @@
       <property name="expand" type="bool" value="true"/>
     </property>
     <property name="plugin-12" type="string" value="clock">
-      <property name="timezone" type="string" value="Europe/Brussels"/>
+      <property name="timezone" type="string" value=""/>
       <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
     </property>
     <property name="plugin-7" type="string" value="separator">
