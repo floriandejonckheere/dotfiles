@@ -79,7 +79,7 @@ HISTFILE=~/.zsh_history
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler rsync rvm screen docker docker-compose rails zsh-autosuggestions)
+plugins=(archlinux common-aliases git github bundler rsync rvm screen docker docker-compose rails zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,7 +123,6 @@ alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 alias grbiom='git rebase -i origin/master'
 alias gcn='git commit -v --no-edit --no-verify'
 alias gcnn!='git commit -v --no-edit --amend --no-verify'
-
 
 # Docker Swarm aliases
 alias dstd="docker stack deploy"
