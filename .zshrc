@@ -194,8 +194,8 @@ export PATH="${PATH}:~/.bin/"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Make NVM available
-source /usr/share/nvm/init-nvm.sh
+# Lazy-load NVM
+alias nvm="unalias nvm; source /usr/share/nvm/init-nvm.sh; nvm $@"
 
 # Private variables
 export ENV=development
