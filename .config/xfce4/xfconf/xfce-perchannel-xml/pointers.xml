@@ -21,7 +21,7 @@
     <property name="RightHanded" type="bool" value="true"/>
     <property name="ReverseScrolling" type="bool" value="true"/>
     <property name="Threshold" type="int" value="1"/>
-    <property name="Acceleration" type="double" value="7.500000"/>
+    <property name="Acceleration" type="double" value="10.000000"/>
   </property>
   <property name="SynPS2_Synaptics_TouchPad" type="empty">
     <property name="Properties" type="empty">
@@ -36,5 +36,11 @@
     <property name="Properties" type="empty">
       <property name="libinput_Tapping_Enabled" type="int" value="1"/>
     </property>
+  </property>
+  <property name="Florians_Mouse" type="empty">
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="Threshold" type="int" value="1"/>
+    <property name="Acceleration" type="double" value="1.000000"/>
+    <property name="ReverseScrolling" type="bool" value="true"/>
   </property>
 </channel>
