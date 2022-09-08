@@ -18,7 +18,7 @@ require "optparse"
 CONFIGURATION = {
   day: {
     theme: {
-      gtk: "Orchis-red-light-compact",
+      gtk: "Orchis-Red-Light-Compact",
       wm: "Materia-light",
       icon: "Tela-circle-red",
     },
@@ -27,7 +27,7 @@ CONFIGURATION = {
   },
   night: {
     theme: {
-      gtk: "Orchis-red-dark-compact",
+      gtk: "Orchis-Red-Dark-Compact",
       wm: "Materia-dark",
       icon: "Tela-circle-red-dark",
     },

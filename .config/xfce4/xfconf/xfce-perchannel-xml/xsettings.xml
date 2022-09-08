@@ -2,8 +2,8 @@
 
 <channel name="xsettings" version="1.0">
   <property name="Net" type="empty">
-    <property name="ThemeName" type="string" value="Orchis-red-dark-compact"/>
-    <property name="IconThemeName" type="string" value="Tela-circle-red-dark"/>
+    <property name="ThemeName" type="string" value="Orchis-Red-Light-Compact"/>
+    <property name="IconThemeName" type="string" value="Tela-circle-red"/>
     <property name="DoubleClickTime" type="empty"/>
     <property name="DoubleClickDistance" type="empty"/>
     <property name="DndDragThreshold" type="empty"/>
