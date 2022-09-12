@@ -101,6 +101,14 @@
 "/home/florian/.bin/brightness --step=-10"
   XF86MonBrightnessDown
 
+# Open screenshot tool
+"xfce4-screenshooter"
+  Print
+
+# Screenshot area to clipboard
+"xfce4-screenshooter --clipboard --region"
+  Alt + Shift + 4
+
 ##################################
 # End of xbindkeys configuration #
 ##################################
