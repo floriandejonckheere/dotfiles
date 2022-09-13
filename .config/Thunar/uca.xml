@@ -37,4 +37,26 @@
 	<patterns>*.sh</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon>object-locked</icon>
+	<name>Encrypt...</name>
+	<unique-id>1663099738505926-1</unique-id>
+	<command>gpg --output %f.gpg -R --encrypt --symmetric %f</command>
+	<description>Encrypt file with a password</description>
+	<patterns>*.*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>object-unlocked</icon>
+	<name>Decrypt...</name>
+	<unique-id>1663100860785804-2</unique-id>
+	<command>gpg --quiet --use-embedded-filename --decrypt %f</command>
+	<description>Decrypt a file with a password</description>
+	<patterns>*.gpg</patterns>
+	<other-files/>
+</action>
 </actions>
