@@ -15,3 +15,7 @@ Enable and start the systemd timer unit:
 systemctl --user daemon-reload
 systemctl --user start --enable mbsync.timer
 ```
+
+## Keybindings
+
+Keybindings are defined in `~/.xbindkeysrc`.
