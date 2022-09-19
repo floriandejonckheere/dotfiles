@@ -19,3 +19,6 @@ UUID=691a8043-eda3-4aa3-a133-d7576f811082	/mnt/data    	btrfs     	rw,relatime,s
 
 # /dev/mapper/secret
 UUID=a0a46681-8a66-484f-a76c-2a20bd911a05	/mnt/secret	btrfs		rw,relatime,ssd,space_cache,subvolid=5,subvol=/,noauto,nofail,x-gvfs-show 0 0
+
+# /dev/mapper/private
+UUID=fc79920b-83b9-4ab2-94ac-eb643676f997       /mnt/private    btrfs           rw,relatime,ssd,space_cache,subvolid=5,subvol=/,noauto,nofail,x-gvfs-show 0 0
