@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+#
+# rclone - Sync GDrive using RClone
+#
+rclone sync \
+	gdrive: \
+	~/Cloud/ \
+	--verbose \
+	--drive-import-formats docx,pptx,xlsx $@

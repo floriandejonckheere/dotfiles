@@ -1,0 +1,6 @@
+[Unit]
+Description=RClone GDrive Sync
+
+[Service]
+Type=simple
+ExecStart=~/.bin/rclone-gdrive
