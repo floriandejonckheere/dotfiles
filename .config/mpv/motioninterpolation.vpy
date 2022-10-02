@@ -7,7 +7,7 @@
 
 import vapoursynth
 
-core = vapoursynth.get_core()
+core = vapoursynth.core
 # ref: http://avisynth.org.ru/mvtools/mvtools2.html#functions
 # default is 400, less means interpolation will only happen when it will work well
 ignore_threshold=140
