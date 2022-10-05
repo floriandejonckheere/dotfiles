@@ -1,6 +1,6 @@
 Command=/home/florian/.bin/tyyssija
 UseLabel=0
 Text=
-UpdatePeriod=30000
+UpdatePeriod=120000
 Font=Sans 11
 

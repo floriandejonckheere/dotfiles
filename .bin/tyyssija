@@ -12,7 +12,7 @@ require "json"
 URL = "https://embed.gymplus.fi/v2/weekchartfetch/en/campussport.tyyssija"
 
 # Maximum (relative) number of visitors
-MAX = 20
+MAX = 15
 
 # Download visitor statistics
 content = JSON
@@ -29,7 +29,7 @@ people = content
   .first
 
 # Display current people count relative to maximum
-icon = "syspeek-#{((people.to_f / MAX) * 10).to_i * 10}"
+icon = "syspeek-#{[((people.to_f / MAX) * 10).to_i * 10, 100].min}"
 
 puts <<~HERE
   <tool>Currently training #{people} people</tool>
