@@ -1,6 +1,6 @@
 Command=/home/florian/.bin/night-mode
 UseLabel=0
-Text=(genmon)
+Text=
 UpdatePeriod=5000
 Font=Sans 10
 

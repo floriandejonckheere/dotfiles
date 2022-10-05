@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+#
+# Tyyssija - show gym visitor statistics
+#
+# Please make sure to install the following packages:
+#  - netsurf
+#
+
+require "json"
+
+# URL to the gym's visitor statistics
+URL = "https://embed.gymplus.fi/v2/weekchartfetch/en/campussport.tyyssija"
+
+# Maximum (relative) number of visitors
+MAX = 20
+
+# Download visitor statistics
+content = JSON
+  .parse(`curl --silent #{URL}`)
+  .fetch("content")
+
+# Write HTML to temporary file
+File.write("/tmp/tyyssija.html", "<script type='text/javascript' src=https://embed.gymplus.fi/js/gpa-embed-v2.min.js></script>#{content}")
+
+# Extract current people count
+people = content
+  .scan(/Currently training (\d+) people/)
+  .first
+  .first
+
+# Display current people count relative to maximum
+icon = "syspeek-#{((people.to_f / MAX) * 10).to_i * 10}"
+
+puts <<~HERE
+  <tool>Currently training #{people} people</tool>
+  <icon>#{icon}</icon>
+  <iconclick>chromium /tmp/tyyssija.html</iconclick>
+HERE
