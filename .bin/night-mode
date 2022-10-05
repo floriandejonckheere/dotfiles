@@ -100,10 +100,12 @@ class Application
 
   def gtk_theme=(value)
     `xfconf-query --channel xsettings -p /Net/ThemeName -s #{value}`
+    `gsettings set org.gnome.desktop.interface gtk-theme #{value}`
   end
 
   def icon_theme=(value)
     `xfconf-query --channel xsettings -p /Net/IconThemeName -s #{value}`
+    `gsettings set org.gnome.desktop.interface icon-theme #{value}`
   end
 
   def xfwm_theme=(value)
