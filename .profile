@@ -18,3 +18,6 @@ setxkbmap -option compose:ralt
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Added by Toolbox App
+export PATH="$PATH:/home/florian/.local/share/JetBrains/Toolbox/scripts"
