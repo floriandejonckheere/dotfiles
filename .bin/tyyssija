@@ -8,31 +8,48 @@
 
 require "json"
 
-# URL to the gym's visitor statistics
-URL = "https://embed.gymplus.fi/v2/weekchartfetch/en/campussport.tyyssija"
+class Application
+  # URL to the gym's visitor statistics
+  URL = "https://embed.gymplus.fi/v2/weekchartfetch/en/campussport.tyyssija"
 
-# Maximum (relative) number of visitors
-MAX = 15
+  # Maximum (relative) number of visitors
+  MAX = 15
 
-# Download visitor statistics
-content = JSON
-  .parse(`curl --silent #{URL}`)
-  .fetch("content")
+  def to_s
+    <<~HERE
+      <tool>Currently training #{people} people</tool>
+      <icon>#{icon}</icon>
+      <iconclick>chromium /tmp/tyyssija.html</iconclick>
+    HERE
+  end
 
-# Write HTML to temporary file
-File.write("/tmp/tyyssija.html", "<script type='text/javascript' src=https://embed.gymplus.fi/js/gpa-embed-v2.min.js></script>#{content}")
+  private
 
-# Extract current people count
-people = content
-  .scan(/Currently training (\d+) people/)
-  .first
-  .first
+  def people
+    @people ||= begin
+      # Download visitor statistics
+      content = JSON
+        .parse(`curl --silent #{URL}`)
+        .fetch("content")
 
-# Display current people count relative to maximum
-icon = "syspeek-#{[((people.to_f / MAX) * 10).to_i * 10, 100].min}"
+      # Write HTML to temporary file
+      File.write("/tmp/tyyssija.html", "<script type='text/javascript' src=https://embed.gymplus.fi/js/gpa-embed-v2.min.js></script>#{content}")
 
-puts <<~HERE
-  <tool>Currently training #{people} people</tool>
-  <icon>#{icon}</icon>
-  <iconclick>chromium /tmp/tyyssija.html</iconclick>
-HERE
+      # Extract current people count
+      content
+        .scan(/Currently training (\d+) people/)
+        .first
+        .first
+    rescue JSON::ParserError
+    end
+  end
+
+  # Icon for current people count relative to maximum
+  def icon
+    return "network-wired-unavailable" if people.nil?
+
+    "syspeek-#{[((people.to_f / MAX) * 10).to_i * 10, 100].min}"
+  end
+end
+
+puts Application.new.to_s
