@@ -79,6 +79,8 @@
       <property name="enable-wnck" type="bool" value="true"/>
       <property name="blacklisted-players" type="string" value="Music"/>
       <property name="volume-set" type="int" value="100"/>
+      <property name="enable-multimedia-keys" type="bool" value="true"/>
+      <property name="enable-mpris" type="bool" value="true"/>
     </property>
     <property name="plugin-9" type="string" value="power-manager-plugin"/>
     <property name="plugin-11" type="string" value="separator">
