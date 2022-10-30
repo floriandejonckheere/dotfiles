@@ -94,11 +94,11 @@
   Control + Alt + Escape
 
 # Increase display brightness
-"/home/florian/.bin/brightness --step=+10"
+"/home/florian/.bin/brightness --increase"
   XF86MonBrightnessUp
 
 # Decrease display brightness
-"/home/florian/.bin/brightness --step=-10"
+"/home/florian/.bin/brightness --decrease"
   XF86MonBrightnessDown
 
 # Open screenshot tool

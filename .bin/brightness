@@ -23,7 +23,15 @@ class Brightness
       end
 
       o.on("-s", "--step=STEP", Float, "Increase/decrease brightness by STEP levels") do |arg|
-        options[:target] = [[options[:current] + (arg), 100].min, 0].max
+        options[:target] = limit(options[:current] + arg)
+      end
+
+      o.on("-i", "--increase", "Increase brightness gradually") do
+        options[:target] = limit(options[:current] + step)
+      end
+
+      o.on("-d", "--decrease", "Decrease brightness gradually") do
+        options[:target] = limit(options[:current] - step)
       end
     end
 
@@ -60,7 +68,7 @@ class Brightness
   private
 
   def brightness
-    `xbacklight`.strip.to_f
+    `xbacklight`.strip.to_f.round
   end
 
   def brightness=(value)
@@ -80,6 +88,14 @@ class Brightness
     COMMAND
 
     `#{command.gsub("\n", " ")}`
+  end
+
+  def step
+    options[:current] <= 10 ? 2 : 10
+  end
+
+  def limit(value)
+    [100, [0, value].max].min
   end
 end
 
