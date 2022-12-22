@@ -102,6 +102,16 @@ export EDITOR=nano
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# zmv
+autoload zmv
+
+###############################################################################
+### Aliases                                                                 ###
+###############################################################################
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -155,7 +165,13 @@ alias dcfgi="docker config inspect"
 alias dcfgls="docker config ls"
 alias dcfgrm="docker config rm"
 
-# Function overrides
+# Lazy-load NVM
+alias nvm="unalias nvm; source /usr/share/nvm/init-nvm.sh; nvm $@"
+
+###############################################################################
+### Functions                                                               ###
+###############################################################################
+
 function pacman() {
   case $1 in
     -S | -D | -S[^sih]* | -R* | -U* | -Fy)
@@ -174,11 +190,9 @@ function systemctl() {
   esac
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# zmv
-autoload zmv
+###############################################################################
+### Keyring                                                                 ###
+###############################################################################
 
 # Start keyring daemon
 #if [ -n "$DESKTOP_SESSION" ]; then
@@ -188,15 +202,20 @@ autoload zmv
 
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
-# PATH modifications
-export PATH="${PATH}:~/.bin/"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Lazy-load NVM
-alias nvm="unalias nvm; source /usr/share/nvm/init-nvm.sh; nvm $@"
+###############################################################################
+### Environment variables                                                   ###
+###############################################################################
 
 # Private variables
 export ENV=development
 export OVERCOMMIT_COLOR=1
+
+###############################################################################
+### PATH variable                                                           ###
+###############################################################################
+
+# Add scripts to PATH
+export PATH="${PATH}:~/.bin/"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
