@@ -27,10 +27,10 @@
       <property name="nrows" type="uint" value="1"/>
       <property name="background-style" type="uint" value="1"/>
       <property name="background-rgba" type="array">
-        <value type="double" value="0.750000"/>
-        <value type="double" value="0.250000"/>
-        <value type="double" value="0.250000"/>
-        <value type="double" value="0.000000"/>
+        <value type="double" value="0.75"/>
+        <value type="double" value="0.25"/>
+        <value type="double" value="0.25"/>
+        <value type="double" value="0"/>
       </property>
       <property name="enter-opacity" type="uint" value="100"/>
       <property name="leave-opacity" type="uint" value="100"/>

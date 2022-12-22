@@ -7,7 +7,7 @@
       <property name="enabled" type="bool" value="false"/>
     </property>
     <property name="enabled" type="bool" value="true"/>
-    <property name="fullscreen-inhibit" type="bool" value="false"/>
+    <property name="fullscreen-inhibit" type="bool" value="true"/>
   </property>
   <property name="lock" type="empty">
     <property name="embedded-keyboard" type="empty">
