@@ -117,7 +117,7 @@
       <property name="digital-layout" type="uint" value="3"/>
       <property name="digital-date-format" type="string" value="%Y-%m-%d %H:%M:%m"/>
       <property name="digital-date-font" type="string" value="Sans 10"/>
-      <property name="digital-time-format" type="string" value="%Y-%m-%d %T"/>
+      <property name="digital-time-format" type="string" value="%A %d %B %T"/>
       <property name="digital-time-font" type="string" value="Sans 10"/>
     </property>
   </property>
