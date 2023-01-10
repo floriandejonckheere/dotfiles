@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+#
+# Sync cloud platform
+#
+
+export PASSWORD=$(gpg2 -q --for-your-eyes-only --no-tty -d ~/.cloud.gpg)
+
+rsync -R -avz \
+	-e '/bin/sh -c "{ echo $PASSWORD; cat - ; } | ssh $0 $* &"' \
+	--rsync-path="sudo -S rsync" \
+	--stats \
+	--delete \
+	cloud@cloud.dejonckhee.re:/mnt/default/ \
+	/mnt/data/Sync/cloud/default/
