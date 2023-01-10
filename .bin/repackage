@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+# Tar up an installed package. Useful if you want to backup a package
+# before upgrading it.
+#
+# NOTE: This does not generate a pacman-compatible package file. It's
+#       just plain old tar output without the package meta files that
+#       pacman relies upon. If you want to rollback a repackaged file,
+#       just use the tar command to extract it to your filesystem.
+#
+# https://gist.github.com/jvinet/ccad8cc0e145134f938a
+
+pkg=$1
+if [ ! "$pkg" ]; then
+	echo "usage: $0 <package>"
+	exit 1
+fi
+
+# Make sure package actually exists.
+pacman -Qq $pkg &>/dev/null
+if [ $? -ne 0 ]; then
+	echo "Package $pkg is not installed." >&2
+	exit 1
+fi
+
+if [ "`id -u`" != "0" ]; then
+	echo "In order to preserve file permissions/ownership, you should run"
+	echo "this command as root."
+	exit 1
+fi
+
+if [ -t 1 ]; then
+	echo "Warning: This script will send tar output to stdout."
+	echo "         You probably want to redirect output to a file/pipe."
+	exit 1
+fi
+
+mkdir repackage.tmp || exit 1
+cd repackage.tmp
+
+echo "Copying files/dirs to temp dir... " >&2
+pacman -Qlq $pkg | while read fn; do
+	# Lose the leading slash.
+	dfn="${fn:1}"
+
+	if [ -d "$fn" ]; then
+		mkdir $dfn || exit 1
+		continue
+	fi
+
+	cp --no-dereference --preserve=all $fn $dfn
+done
+
+echo "Tarring dir, sending to stdout... " >&2
+tar c *
+
+cd ..
+echo "Removing temp dir... " >&2
+rm -rf repackage.tmp
+
+echo "Done." >&2
+exit 0
