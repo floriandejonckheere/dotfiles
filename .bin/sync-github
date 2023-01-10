@@ -1,0 +1,18 @@
+#!/usr/bin/sh
+#
+# Sync Github repositories
+#
+
+TOKEN=$(gpg2 -q --for-your-eyes-only --no-tty -d ~/.github.gpg)
+
+github-backup \
+	--token ${TOKEN} \
+	--incremental \
+	--repositories \
+	--gists \
+	--private \
+	--prefer-ssh \
+	--releases \
+	--assets \
+	-o /mnt/data/Sync/github/ \
+	floriandejonckheere
