@@ -13,7 +13,7 @@ class Application
   URL = "https://embed.gymplus.fi/v2/weekchartfetch/en/campussport.tyyssija"
 
   # Maximum (relative) number of visitors
-  MAX = 15
+  MAX = 20
 
   def to_s
     <<~HERE
