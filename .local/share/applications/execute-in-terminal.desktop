@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Execute script in terminal
+GenericName=Execute script in terminal
+command=Execute script in terminal
+Exec=terminator -e '%F; echo -n "Process exited with status $?. Press any key to exit."; read -sk'
+Icon=terminal
+Terminal=false
+Type=Application

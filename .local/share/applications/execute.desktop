@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Execute
+GenericName=Execute
+command=Execute
+Exec=sh %F
+Icon=terminal
+Terminal=false
+Type=Application
