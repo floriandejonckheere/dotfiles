@@ -126,6 +126,7 @@ alias grep='grep --color=always -n'
 alias GREP='/usr/bin/grep'
 alias less='less --hilite-search --raw-control-chars'
 alias userctl='systemctl --user'
+alias rm='rm -I'
 
 alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 
