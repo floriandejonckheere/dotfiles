@@ -2,14 +2,9 @@
   dbus = False
   tab_position = hidden
   scroll_tabbar = True
-  title_transmit_fg_color = "#776363"
-  title_transmit_bg_color = "#e7e8eb"
-  title_inactive_fg_color = "#9a8d8c"
-  title_inactive_bg_color = "#e7e8eb"
   enabled_plugins = TerminatorThemes,
   suppress_multiple_term_dialog = True
   always_split_with_profile = True
-  title_font = Sans 1
 [keybindings]
   go_prev = <Primary><Shift>b
   go_up = <Alt>i
@@ -26,7 +21,6 @@
     visible_bell = True
     background_color = "#fdf6e3"
     background_darkness = 0.8
-    cursor_color = "#676767"
     font = MesloLGS NF 10
     foreground_color = "#657b83"
     show_titlebar = False
@@ -42,7 +36,6 @@
     visible_bell = True
     background_color = "#212121"
     background_darkness = 0.8
-    cursor_color = "#d0d0d0"
     font = MesloLGS NF 10
     foreground_color = "#d0d0d0"
     show_titlebar = False
@@ -58,7 +51,6 @@
     visible_bell = True
     background_color = "#fafafa"
     background_darkness = 0.8
-    cursor_color = "#bfceff"
     font = MesloLGS NF 10
     foreground_color = "#383a42"
     show_titlebar = False
