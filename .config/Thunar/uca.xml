@@ -3,46 +3,56 @@
 <action>
 	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
+	<submenu></submenu>
 	<unique-id>1611940927518061-1</unique-id>
 	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
 	<description>Example for a custom action</description>
+	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>
 	<directories/>
 </action>
 <action>
 	<icon>baobab</icon>
-	<name>View disk usage</name>
+	<name>Analyze disk usage</name>
+	<submenu></submenu>
 	<unique-id>1612455380693765-1</unique-id>
 	<command>baobab %F</command>
-	<description>View disk usage</description>
+	<description>Analyze disk usage</description>
+	<range></range>
 	<patterns>*</patterns>
 	<directories/>
 </action>
 <action>
 	<icon>application-pdf</icon>
 	<name>Concatenate PDF</name>
+	<submenu></submenu>
 	<unique-id>1646563522218530-1</unique-id>
 	<command>pdftk %F cat output %n-concatenated.pdf</command>
 	<description>Concatenate selected PDF files</description>
+	<range></range>
 	<patterns>*.pdf</patterns>
 	<other-files/>
 </action>
 <action>
 	<icon>akonadiconsole</icon>
 	<name>Execute script...</name>
+	<submenu></submenu>
 	<unique-id>1652720571730206-1</unique-id>
 	<command>/usr/bin/terminator -e &apos;%f; echo -n &quot;Process exited with status $?. Press any key to exit.&quot;; read -sk&apos;</command>
 	<description>Execute script in a terminal window</description>
+	<range></range>
 	<patterns>*.sh</patterns>
 	<other-files/>
 </action>
 <action>
 	<icon>object-locked</icon>
 	<name>Encrypt...</name>
+	<submenu></submenu>
 	<unique-id>1663099738505926-1</unique-id>
 	<command>gpg --output %f.gpg -R --encrypt --symmetric %f</command>
 	<description>Encrypt file with a password</description>
+	<range></range>
 	<patterns>*.*</patterns>
 	<audio-files/>
 	<image-files/>
@@ -53,9 +63,11 @@
 <action>
 	<icon>object-unlocked</icon>
 	<name>Decrypt...</name>
+	<submenu></submenu>
 	<unique-id>1663100860785804-2</unique-id>
 	<command>gpg --quiet --use-embedded-filename --decrypt %f</command>
 	<description>Decrypt a file with a password</description>
+	<range></range>
 	<patterns>*.gpg</patterns>
 	<other-files/>
 </action>
