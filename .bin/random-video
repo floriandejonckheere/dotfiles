@@ -1,0 +1,3 @@
+#!/usr/bin/bash -x
+
+find ${@:-$PWD} -iname '*.mp4' -o -iname '*.mkv' -o -iname '*.webm' -type f | shuf -n 1 | xargs -d "\n" mpv

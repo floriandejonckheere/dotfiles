@@ -72,6 +72,17 @@
 	<other-files/>
 </action>
 <action>
+	<icon>mpv</icon>
+	<name>Random video</name>
+	<submenu></submenu>
+	<unique-id>1677777592489540-1</unique-id>
+	<command>/home/second/.bin/random-video %F</command>
+	<description>Display a random video</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
 	<icon>account-types-closed</icon>
 	<name>Truncate</name>
 	<submenu></submenu>
