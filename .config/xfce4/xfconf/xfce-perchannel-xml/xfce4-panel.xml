@@ -15,7 +15,7 @@
         <value type="int" value="7"/>
         <value type="int" value="1"/>
         <value type="int" value="11"/>
-        <value type="int" value="12"/>
+        <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="6"/>
         <value type="int" value="8"/>
@@ -53,6 +53,8 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “hyggent” active: hyggent (77%)
+vpn connection active"/>
         <value type="string" value="tp-battery-icon"/>
         <value type="string" value="redshift-gtk"/>
         <value type="string" value="xfce4-power-manager"/>
@@ -110,7 +112,6 @@
     <property name="plugin-10" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-2" type="string" value="genmon"/>
     <property name="plugin-5" type="string" value="xfce4-mpc-plugin"/>
     <property name="plugin-15" type="string" value="clock">
       <property name="mode" type="uint" value="2"/>
@@ -120,5 +121,6 @@
       <property name="digital-time-format" type="string" value="%A %d %B %T"/>
       <property name="digital-time-font" type="string" value="Sans 10"/>
     </property>
+    <property name="plugin-2" type="string" value="datetime"/>
   </property>
 </channel>
