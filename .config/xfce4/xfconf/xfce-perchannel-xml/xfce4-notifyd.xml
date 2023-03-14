@@ -31,4 +31,5 @@
   <property name="compat" type="empty">
     <property name="use-override-redirect-windows" type="bool" value="true"/>
   </property>
+  <property name="do-not-disturb" type="bool" value="false"/>
 </channel>
