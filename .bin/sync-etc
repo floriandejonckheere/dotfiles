@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
-# sync.sh - Sync system configuration to dotfiles repository
+# Sync system configuration to dotfiles repository
 #
 
+# Sync /etc
 REPO="$HOME/.etc/"
 
 FILES=$(find "${REPO}" -type f -not -path "${REPO}sync.sh")
@@ -12,3 +13,8 @@ for FILE in ${FILES[@]}; do
 
 	cp -v "${SYSTEM}" "${FILE}"
 done
+
+# Sync /boot
+REPO="$HOME/.boot/"
+
+cp -v /boot/grub/grub.cfg ${REPO}/grub/grub.cfg
