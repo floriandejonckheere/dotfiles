@@ -28,4 +28,7 @@
   <property name="date-time-custom-format" type="string" value="%a %H:%M:%S"/>
   <property name="initial-opacity" type="double" value="0.94999999999999996"/>
   <property name="notification-log" type="bool" value="true"/>
+  <property name="compat" type="empty">
+    <property name="use-override-redirect-windows" type="bool" value="true"/>
+  </property>
 </channel>
