@@ -18,6 +18,7 @@
         <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="6"/>
+        <value type="int" value="5"/>
         <value type="int" value="8"/>
         <value type="int" value="9"/>
         <value type="int" value="4"/>
@@ -53,8 +54,7 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
-        <value type="string" value="wi-fi network connection “hyggent” active: hyggent (77%)
-vpn connection active"/>
+        <value type="string" value="wi-fi network connection “hyggent” active: hyggent (77%) vpn connection active"/>
         <value type="string" value="tp-battery-icon"/>
         <value type="string" value="redshift-gtk"/>
         <value type="string" value="xfce4-power-manager"/>
@@ -77,7 +77,7 @@ vpn connection active"/>
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="chromium.instance24240;chromium.instance2438;chromium.instance2903;chromium.instance5051;mpd;mpv;Music;spotify"/>
+      <property name="mpris-players" type="string" value="chromium.instance169743;chromium.instance24240;chromium.instance2438;chromium.instance2903;chromium.instance3841;chromium.instance5051;firefox.instance109816;firefox.instance67145;mpd;mpv;Music;spotify"/>
       <property name="enable-wnck" type="bool" value="true"/>
       <property name="blacklisted-players" type="string" value="Music"/>
       <property name="volume-set" type="int" value="100"/>
@@ -120,13 +120,12 @@ vpn connection active"/>
       <property name="digital-time-format" type="string" value="%Y-%m-%d %T"/>
       <property name="digital-time-font" type="string" value="Sans 10"/>
     </property>
-    <property name="plugin-2" type="string" value="clock">
+    <property name="plugin-2" type="string" value="datetime">
       <property name="digital-time-format" type="string" value="%A %d %B %T"/>
       <property name="mode" type="uint" value="2"/>
       <property name="digital-layout" type="uint" value="3"/>
       <property name="digital-time-font" type="string" value="Sans 10"/>
     </property>
-    <property name="plugin-2" type="string" value="datetime"/>
-    <property name="plugin-5" type="string" value="notification-plugin"/>
+    <property name="plugin-5" type="string" value="genmon"/>
   </property>
 </channel>
