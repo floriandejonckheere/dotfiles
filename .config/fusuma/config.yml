@@ -23,3 +23,15 @@ pinch:
       command: 'xdotool keydown ctrl click 4 keyup ctrl' # Zoom in
     out:
       command: 'xdotool keydown ctrl click 5 keyup ctrl' # Zoom out
+
+rotate:
+  2:
+    clockwise:
+      command: 'xdotool key XF86AudioRaiseVolume' # Volume up
+    counterclockwise:
+      command: 'xdotool key XF86AudioLowerVolume' # Volume down
+  3:
+    clockwise:
+      command: 'xdotool key XF86MonBrightnessUp' # Brightness up
+    counterclockwise:
+      command: 'xdotool key XF86MonBrightnessDown' # Brightness down
