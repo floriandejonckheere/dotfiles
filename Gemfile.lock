@@ -1,11 +1,19 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    fusuma (2.5.1)
+    fusuma-plugin-keypress (0.6.1)
+      fusuma (~> 2.0)
+    fusuma-plugin-tap (0.4.2)
+      fusuma (~> 2.0)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  fusuma
+  fusuma-plugin-keypress
+  fusuma-plugin-tap
 
 RUBY VERSION
    ruby 3.2.1p31
