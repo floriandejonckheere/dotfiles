@@ -1,13 +1,13 @@
 swipe:
   3:
     left:
-      command: 'xdotool keydown ctrl+alt+Right; xdotool keyup Right; sleep .3; xdotool keyup ctrl+alt'
+      command: 'xdotool keydown ctrl+alt+Right; xdotool keyup Right; sleep .3; xdotool keyup ctrl+alt' # Go right a workspace
     right:
-      command: 'xdotool keydown ctrl+alt+Left; xdotool keyup Left; sleep .3; xdotool keyup ctrl+alt'
+      command: 'xdotool keydown ctrl+alt+Left; xdotool keyup Left; sleep .3; xdotool keyup ctrl+alt' # Go left a workspace
     up:
-      command: 'xdotool keydown ctrl+alt+Down; xdotool keyup Down; sleep .3; xdotool keyup ctrl+alt'
+      command: 'xdotool keydown ctrl+alt+Down; xdotool keyup Down; sleep .3; xdotool keyup ctrl+alt' # Go down a workspace
     down:
-      command: 'xdotool keydown ctrl+alt+Up; xdotool keyup Up; sleep .3; xdotool keyup ctrl+alt'
+      command: 'xdotool keydown ctrl+alt+Up; xdotool keyup Up; sleep .3; xdotool keyup ctrl+alt' # Go up a workspace
   4:
     left:
       command: 'xdotool key alt+Right' # History forward
@@ -20,6 +20,6 @@ swipe:
 pinch:
   2:
     in:
-      command: 'xdotool keydown ctrl click 4 keyup ctrl'
+      command: 'xdotool keydown ctrl click 4 keyup ctrl' # Zoom in
     out:
-      command: 'xdotool keydown ctrl click 5 keyup ctrl'
+      command: 'xdotool keydown ctrl click 5 keyup ctrl' # Zoom out
