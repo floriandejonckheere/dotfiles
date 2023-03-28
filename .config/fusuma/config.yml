@@ -10,15 +10,16 @@ swipe:
       command: 'xdotool keydown ctrl+alt+Up; xdotool keyup Up; sleep .3; xdotool keyup ctrl+alt'
   4:
     left:
-      command: 'xdotool key ctrl+alt+super+Up'
+      command: 'xdotool key alt+Right' # History forward
     right:
-      command: 'xdotool key ctrl+alt+super+Up'
+      command: 'xdotool key alt+Left' # History back
     up:
-      command: 'xdotool key ctrl+alt+super+Up'
+      command: 'xdotool key ctrl+t' # Open new tab
     down:
-      command: 'xdotool key ctrl+alt+super+Up'
+      command: 'xdotool key ctrl+w' # Close tab
 pinch:
-  in:
-    command: 'xdotool keydown ctrl click 4 keyup ctrl'
-  out:
-    command: 'xdotool keydown ctrl click 5 keyup ctrl'
+  2:
+    in:
+      command: 'xdotool keydown ctrl click 4 keyup ctrl'
+    out:
+      command: 'xdotool keydown ctrl click 5 keyup ctrl'
