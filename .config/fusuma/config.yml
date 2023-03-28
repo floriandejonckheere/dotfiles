@@ -35,3 +35,10 @@ rotate:
       command: 'xdotool key XF86MonBrightnessUp' # Brightness up
     counterclockwise:
       command: 'xdotool key XF86MonBrightnessDown' # Brightness down
+
+plugins:
+  inputs:
+    libinput_command_input:
+      enable-tap: true # Click to tap
+      enable-dwt: true # Disable tap while typing
+      show-keycodes: true # Add support for keycodes
