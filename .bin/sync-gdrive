@@ -5,6 +5,6 @@
 
 rclone sync \
 	gdrive: \
-	~/Cloud/ \
+	/mnt/data/Sync/gdrive/ \
 	--verbose \
 	--drive-import-formats docx,pptx,xlsx $@
