@@ -24,7 +24,6 @@
         <value type="int" value="4"/>
         <value type="int" value="10"/>
       </property>
-      <property name="disable-struts" type="bool" value="false"/>
       <property name="nrows" type="uint" value="1"/>
       <property name="background-style" type="uint" value="1"/>
       <property name="background-rgba" type="array">
@@ -37,6 +36,7 @@
       <property name="leave-opacity" type="uint" value="100"/>
       <property name="background-image" type="string" value="/home/florian/transparent.png"/>
       <property name="output-name" type="string" value="Primary"/>
+      <property name="enable-struts" type="bool" value="true"/>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -108,7 +108,14 @@
     <property name="plugin-18" type="empty">
       <property name="volume-set" type="int" value="100"/>
     </property>
-    <property name="plugin-4" type="string" value="genmon"/>
+    <property name="plugin-4" type="string" value="genmon">
+      <property name="command" type="string" value="/home/florian/.bin/night-mode"/>
+      <property name="use-label" type="bool" value="false"/>
+      <property name="text" type="string" value="(genmon)"/>
+      <property name="update-period" type="int" value="5000000"/>
+      <property name="enable-single-row" type="bool" value="true"/>
+      <property name="font" type="string" value="Noto Sans 11"/>
+    </property>
     <property name="plugin-10" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
@@ -126,6 +133,13 @@
       <property name="digital-layout" type="uint" value="3"/>
       <property name="digital-time-font" type="string" value="Sans 10"/>
     </property>
-    <property name="plugin-5" type="string" value="genmon"/>
+    <property name="plugin-5" type="string" value="genmon">
+      <property name="command" type="string" value="/home/florian/.bin/tyyssija"/>
+      <property name="use-label" type="bool" value="false"/>
+      <property name="text" type="string" value="(genmon)"/>
+      <property name="update-period" type="int" value="60000"/>
+      <property name="enable-single-row" type="bool" value="true"/>
+      <property name="font" type="string" value="Noto Sans 11"/>
+    </property>
   </property>
 </channel>
