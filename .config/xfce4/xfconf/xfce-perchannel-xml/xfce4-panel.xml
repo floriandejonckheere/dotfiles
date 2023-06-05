@@ -133,13 +133,5 @@
       <property name="digital-layout" type="uint" value="3"/>
       <property name="digital-time-font" type="string" value="Sans 10"/>
     </property>
-    <property name="plugin-5" type="string" value="genmon">
-      <property name="command" type="string" value="/home/florian/.bin/tyyssija"/>
-      <property name="use-label" type="bool" value="false"/>
-      <property name="text" type="string" value="(genmon)"/>
-      <property name="update-period" type="int" value="60000"/>
-      <property name="enable-single-row" type="bool" value="true"/>
-      <property name="font" type="string" value="Noto Sans 11"/>
-    </property>
   </property>
 </channel>
