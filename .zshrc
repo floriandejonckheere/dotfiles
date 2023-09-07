@@ -79,7 +79,7 @@ HISTFILE=~/.zsh_history
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux common-aliases git github bundler rsync rvm screen docker docker-compose rails zsh-autosuggestions)
+plugins=(archlinux common-aliases git github bundler rsync rvm screen terraform docker docker-compose rails zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
