@@ -71,4 +71,19 @@
 	<patterns>*.gpg</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon>account-types-closed</icon>
+	<name>Truncate</name>
+	<submenu></submenu>
+	<unique-id>1698833949201957-1</unique-id>
+	<command>truncate -s 0 %F &amp;&amp; notify-send --icon=close &quot;File truncated&quot; &quot;File %N was truncated to 0 bytes&quot;</command>
+	<description>Truncate file to 0 bytes</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
