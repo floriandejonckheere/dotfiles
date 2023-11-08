@@ -86,4 +86,19 @@
 	<text-files/>
 	<video-files/>
 </action>
+<action>
+	<icon>emblem-symbolic-link</icon>
+	<name>Hard link</name>
+	<submenu></submenu>
+	<unique-id>1699457497619709-1</unique-id>
+	<command>ln %f %f.lnk</command>
+	<description>Create a hard link to the file</description>
+	<range>1-1</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
