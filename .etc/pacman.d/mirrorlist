@@ -3,13 +3,12 @@
 ################################################################################
 
 # With:       reflector -c italy --sort score
-# When:       2023-10-05 07:39:53 UTC
+# When:       2023-10-15 15:33:58 UTC
 # From:       https://archlinux.org/mirrors/status/json/
-# Retrieved:  2023-10-05 07:39:53 UTC
-# Last Check: 2023-10-05 07:35:11 UTC
+# Retrieved:  2023-10-15 15:33:28 UTC
+# Last Check: 2023-10-15 15:26:36 UTC
 
 Server = https://archmirror.it/repos/$repo/os/$arch
-Server = http://archlinux.mirror.server24.net/$repo/os/$arch
 Server = https://archlinux.mirror.server24.net/$repo/os/$arch
-Server = http://archlinux.mirror.garr.it/archlinux/$repo/os/$arch
+Server = http://archlinux.mirror.server24.net/$repo/os/$arch
 
