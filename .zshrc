@@ -121,6 +121,7 @@ autoload zmv
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='ls --color=auto'
+alias llh='ls -lh'
 alias dmesg='dmesg --color=always'
 alias grep='grep --color=always -n'
 alias GREP='/usr/bin/grep'
