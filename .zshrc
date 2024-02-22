@@ -217,7 +217,7 @@ export OVERCOMMIT_COLOR=1
 ###############################################################################
 
 # Add scripts to PATH
-export PATH="${PATH}:${HOME}/.bin/"
+export PATH="${PATH}:${HOME}/.bin/:${HOME}/.cargo/bin/"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:${HOME}/.rvm/bin"
