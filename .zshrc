@@ -202,7 +202,7 @@ function systemctl() {
 #  export SSH_AUTH_SOCK
 #fi
 
-export SSH_AUTH_SOCK=/run/user/1000/gcr/ssh
+export SSH_AUTH_SOCK=/run/user/$(id -u)/gcr/ssh
 
 ###############################################################################
 ### Environment variables                                                   ###
