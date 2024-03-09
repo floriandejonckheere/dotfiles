@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync Google Drive timer
+
+[Timer]
+OnBootSec=1d
+OnUnitActiveSec=1d
+Unit=sync-gdrive.service
+
+[Install]
+WantedBy=timers.target

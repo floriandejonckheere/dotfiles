@@ -1,0 +1,6 @@
+[Unit]
+Description=Sync Google Drive
+
+[Service]
+Type=simple
+ExecStart=~/.bin/sync-gdrive
