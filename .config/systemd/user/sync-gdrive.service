@@ -3,4 +3,4 @@ Description=Sync Google Drive
 
 [Service]
 Type=simple
-ExecStart=~/.bin/sync-gdrive
+ExecStart=%h/.bin/sync-gdrive
