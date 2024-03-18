@@ -142,7 +142,7 @@
       <property name="command" type="string" value="/home/florian/.bin/tyyssija"/>
       <property name="use-label" type="bool" value="false"/>
       <property name="text" type="string" value="(genmon)"/>
-      <property name="update-period" type="int" value="30000"/>
+      <property name="update-period" type="int" value="120000"/>
       <property name="enable-single-row" type="bool" value="true"/>
       <property name="font" type="string" value="Noto Sans 11"/>
     </property>
