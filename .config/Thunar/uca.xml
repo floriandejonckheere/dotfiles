@@ -2,7 +2,7 @@
 <actions>
 <action>
 	<icon>utilities-terminal</icon>
-	<name>Open Terminal Here</name>
+	<name>Open _Terminal Here</name>
 	<submenu></submenu>
 	<unique-id>1611940927518061-1</unique-id>
 	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
@@ -14,7 +14,7 @@
 </action>
 <action>
 	<icon>baobab</icon>
-	<name>Analyze disk usage</name>
+	<name>Analyze disk _usage</name>
 	<submenu></submenu>
 	<unique-id>1612455380693765-1</unique-id>
 	<command>baobab %F</command>
@@ -25,7 +25,7 @@
 </action>
 <action>
 	<icon>application-pdf</icon>
-	<name>Concatenate PDF</name>
+	<name>_Concatenate PDF</name>
 	<submenu></submenu>
 	<unique-id>1646563522218530-1</unique-id>
 	<command>pdftk %F cat output %n-concatenated.pdf</command>
@@ -36,7 +36,7 @@
 </action>
 <action>
 	<icon>akonadiconsole</icon>
-	<name>Execute script...</name>
+	<name>E_xecute script...</name>
 	<submenu></submenu>
 	<unique-id>1652720571730206-1</unique-id>
 	<command>/usr/bin/terminator -e &apos;%f; echo -n &quot;Process exited with status $?. Press any key to exit.&quot;; read -sk&apos;</command>
@@ -47,7 +47,7 @@
 </action>
 <action>
 	<icon>object-locked</icon>
-	<name>Encrypt...</name>
+	<name>_Encrypt...</name>
 	<submenu></submenu>
 	<unique-id>1663099738505926-1</unique-id>
 	<command>gpg --output %f.gpg -R --encrypt --symmetric %f</command>
@@ -62,7 +62,7 @@
 </action>
 <action>
 	<icon>object-unlocked</icon>
-	<name>Decrypt...</name>
+	<name>_Decrypt...</name>
 	<submenu></submenu>
 	<unique-id>1663100860785804-2</unique-id>
 	<command>gpg --quiet --use-embedded-filename --decrypt %f</command>
@@ -73,7 +73,7 @@
 </action>
 <action>
 	<icon>mpv</icon>
-	<name>Random video</name>
+	<name>Random _video</name>
 	<submenu></submenu>
 	<unique-id>1677777592489540-1</unique-id>
 	<command>/home/second/.bin/random-video %F</command>
@@ -84,7 +84,7 @@
 </action>
 <action>
 	<icon>account-types-closed</icon>
-	<name>Truncate</name>
+	<name>_Truncate</name>
 	<submenu></submenu>
 	<unique-id>1698833949201957-1</unique-id>
 	<command>truncate -s 0 %F &amp;&amp; notify-send --icon=close &quot;File truncated&quot; &quot;File %N was truncated to 0 bytes&quot;</command>
@@ -99,7 +99,7 @@
 </action>
 <action>
 	<icon>emblem-symbolic-link</icon>
-	<name>Hard link</name>
+	<name>Hard _link</name>
 	<submenu></submenu>
 	<unique-id>1699457497619709-1</unique-id>
 	<command>ln %f %f.lnk</command>
