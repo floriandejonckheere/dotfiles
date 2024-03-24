@@ -137,6 +137,10 @@ alias gcn='git commit -v --no-edit --no-verify'
 alias gcnn!='git commit -v --no-edit --amend --no-verify'
 alias gpuom='git push --set-upstream origin master'
 
+# Ruby aliases
+alias rbcp='rubocop'
+alias rbcpa='rubocop --auto-correct'
+
 # Docker Swarm aliases
 alias dstd="docker stack deploy"
 alias dstls="docker stack ls"
