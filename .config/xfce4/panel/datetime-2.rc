@@ -1,6 +1,6 @@
 layout=2
 date_font=Noto Sans 10
 time_font=Bitstream Vera Sans 8
-date_format=%A %d %B %T
+date_format=%A %e %B %T
 time_format=%H:%M:%S
 
