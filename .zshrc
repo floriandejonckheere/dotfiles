@@ -139,7 +139,7 @@ alias gpuom='git push --set-upstream origin master'
 
 # Ruby aliases
 alias rbcp='rubocop'
-alias rbcpa='rubocop --autocorrect'
+alias rbcpa='rubocop --autocorrect-all'
 
 # Docker Swarm aliases
 alias dstd="docker stack deploy"
