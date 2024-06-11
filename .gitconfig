@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Florian Dejonckheere
+	email = florian@nephroflow.com
+	signingKey = 2BEDDCA4D7711645
+[core]
+  excludesfile = ~/.gitignore
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[pull]
+	ff = only
+[rebase]
+	updateRefs = true
+[push]
+	autoSetupRemote = true
