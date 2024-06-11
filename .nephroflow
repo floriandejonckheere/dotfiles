@@ -1,0 +1,43 @@
+function nf_signin() {
+  USER=${1:-henry.davidson}
+  PASSWORD=${2:-password}
+
+  BODY=$(curl -s -X POST \
+    -d "{\"username\": \"${USER}\", \"password\": \"${PASSWORD}\"}" \
+    -H 'Content-Type: application/json' \
+    http://localhost:3000/api/auth)
+
+  if [[ $(echo "${BODY}" | jq '.errors') != "null" ]]; then
+    echo "Error signing in: $(echo "${BODY}" | jq -r '.errors[0].title')"
+
+    return
+  fi
+
+  export REFRESH_TOKEN=$(echo "${BODY}" | jq -r '.refresh')
+  export ACCESS_TOKEN=$(echo "${BODY}" | jq -r '.access')
+
+  echo "Signed in as ${USER} (valid until $(echo "${BODY}" | jq -r '.refresh_expires_at'))"
+}
+
+function nf_refresh() {
+  if [[ ! ${REFRESH_TOKEN} ]]; then
+    echo "Error: REFRESH_TOKEN not set"
+
+    return
+  fi
+
+  BODY=$(curl -s -X POST \
+    -H 'Content-Type: application/json' \
+    -H "X-Refresh-Token: ${REFRESH_TOKEN}" \
+    http://localhost:3000/api/auth/refresh)
+
+  if [[ $(echo "${BODY}" | jq '.errors') != "null" ]]; then
+    echo "Error refreshing token"
+
+    return
+  fi
+
+  export ACCESS_TOKEN=$(echo "${BODY}" | jq -r '.access')
+
+  echo "Refreshed access token (valid until $(echo "${BODY}" | jq -r '.access_expires_at'))"
+}
