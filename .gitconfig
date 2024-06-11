@@ -3,8 +3,6 @@
 	name = Florian Dejonckheere
 	email = florian@nephroflow.com
 	signingKey = 2BEDDCA4D7711645
-[core]
-  excludesfile = ~/.gitignore
 [commit]
 	gpgsign = true
 [gpg]
