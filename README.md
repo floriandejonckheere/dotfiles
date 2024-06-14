@@ -11,7 +11,7 @@ Install Homebrew:
 Install dependencies:
 
 ```sh
-brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf
+brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build
 ```
 
 Install tools:
