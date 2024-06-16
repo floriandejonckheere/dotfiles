@@ -171,6 +171,10 @@ alias dcfgi="docker config inspect"
 alias dcfgls="docker config ls"
 alias dcfgrm="docker config rm"
 
+# Docker compose contexts
+alias dccloud="docker --context cloud compose -f ~/Code/fcloud/compose.yaml"
+alias dcvpn="docker --context vpn compose -f ~/Code/fcloud/compose.vpn.yaml"
+
 # Lazy-load NVM
 alias nvm="unalias nvm; source /usr/share/nvm/init-nvm.sh; nvm $@"
 
