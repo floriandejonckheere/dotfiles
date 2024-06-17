@@ -75,7 +75,6 @@ function nf_post() {
     http://localhost:3000/api/${URL_PATH} | jq
 }
 
-
 function nf_patch() {
   URL_PATH=${1}
   BODY=${2}
