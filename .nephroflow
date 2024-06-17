@@ -41,3 +41,55 @@ function nf_refresh() {
 
   echo "Refreshed access token (valid until $(echo "${BODY}" | jq -r '.access_expires_at'))"
 }
+
+function nf_get() {
+  URL_PATH=${1}
+  OPTIONS=${2}
+
+  if [[ ! ${URL_PATH} ]]; then
+    echo "Usage: ${0} URL_PATH [OPTIONS...]"
+
+    return 1
+  fi
+
+  curl ${OPTIONS} -s -X GET \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+    http://localhost:3000/api/${URL_PATH} | jq
+}
+
+function nf_post() {
+  URL_PATH=${1}
+  BODY=${2}
+  OPTIONS=${2}
+
+  if [[ ! ${BODY} ]]; then
+    echo "Usage: ${0} URL_PATH JSON_BODY [OPTIONS...]"
+
+    return 1
+  fi
+
+  curl ${OPTIONS} -s -X POST \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+    -H 'Content-Type: application/json' \
+    -d "${BODY}" \
+    http://localhost:3000/api/${URL_PATH} | jq
+}
+
+
+function nf_patch() {
+  URL_PATH=${1}
+  BODY=${2}
+  OPTIONS=${2}
+
+  if [[ ! ${BODY} ]]; then
+    echo "Usage: ${0} URL_PATH JSON_BODY [OPTIONS...]"
+
+    return 1
+  fi
+
+  curl ${OPTIONS} -s -X PATCH \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+    -H 'Content-Type: application/json' \
+    -d "${BODY}" \
+    http://localhost:3000/api/${URL_PATH} | jq
+}
