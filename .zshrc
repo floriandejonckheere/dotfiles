@@ -143,5 +143,7 @@ export ENV=development
 export BUNDLER_USERNAME=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 2 | cut -b 3-)
 export BUNDLER_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 3 | rev | cut -b 2- | rev)
 
+# Add node_modules to PATH
+PATH="${PATH}:./node_modules/.bin"
 
 . ~/.nephroflow
