@@ -14,6 +14,13 @@ Install dependencies:
 brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq
 ```
 
+Install teleport:
+
+```sh
+curl -O https://cdn.teleport.dev/teleport-9.3.26.pkg
+sudo open teleport-9.3.26.pkg
+```
+
 Install tools:
 
 ```
