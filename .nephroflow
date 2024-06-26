@@ -1,3 +1,4 @@
+# Sign in as a user and set token environment variables (default: henry.davidson)
 function nf_signin() {
   USER=${1:-henry.davidson}
   PASSWORD=${2:-password}
@@ -19,6 +20,7 @@ function nf_signin() {
   echo "Signed in as ${USER} (valid until $(echo "${BODY}" | jq -r '.refresh_expires_at'))"
 }
 
+# Refresh the access token using the refresh token
 function nf_refresh() {
   if [[ ! ${REFRESH_TOKEN} ]]; then
     echo "Error: REFRESH_TOKEN not set"
@@ -42,6 +44,7 @@ function nf_refresh() {
   echo "Refreshed access token (valid until $(echo "${BODY}" | jq -r '.access_expires_at'))"
 }
 
+# GET a resource
 function nf_get() {
   URL_PATH=${1}
   OPTIONS=${2}
@@ -57,6 +60,7 @@ function nf_get() {
     http://localhost:3000/api/${URL_PATH} | jq
 }
 
+# POST a resource
 function nf_post() {
   URL_PATH=${1}
   BODY=${2}
@@ -75,6 +79,7 @@ function nf_post() {
     http://localhost:3000/api/${URL_PATH} | jq
 }
 
+# PATCH a resource
 function nf_patch() {
   URL_PATH=${1}
   BODY=${2}
