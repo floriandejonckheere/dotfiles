@@ -1,4 +1,4 @@
-# Sign in as a user and set token environment variables (default: henry.davidson)
+# Sign in as a user and set token environment variables (default username: henry.davidson)
 function nf_signin() {
   USER=${1:-henry.davidson}
   PASSWORD=${2:-password}
@@ -42,6 +42,30 @@ function nf_refresh() {
   export ACCESS_TOKEN=$(echo "${BODY}" | jq -r '.access')
 
   echo "Refreshed access token (valid until $(echo "${BODY}" | jq -r '.access_expires_at'))"
+}
+
+# Find or create an integration token and set token environment variables (default scope: link)
+function nf_token() {
+  SCOPE=${1:-"link"}
+  NAME="${SCOPE}-${RANDOM}"
+
+  # Sign in as administrator
+  nf_signin nephroflow admin
+
+  # Find or create integration token
+  TOKEN=$(curl -s -X POST \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+    -H 'Content-Type: application/json' \
+    -d "{\"name\":\"${NAME}\",\"scope\":\"${SCOPE}\",\"expiration_period\":\"1_month\"}" \
+    http://localhost:3000/api/users/integration_tokens | jq -r '.token')
+
+  EXPIRATION=$(curl -s -X GET \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+    http://localhost:3000/api/users/integration_tokens | jq -r ".integration_tokens[] | select(.name == \"${NAME}\") | .expiration_at")
+
+  export ACCESS_TOKEN=${TOKEN}
+
+  echo "Created integration token with scope ${SCOPE} (valid until ${EXPIRATION})"
 }
 
 # GET a resource
