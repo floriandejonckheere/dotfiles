@@ -11,7 +11,7 @@ Install Homebrew:
 Install dependencies:
 
 ```sh
-brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq
+brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq gh
 ```
 
 Install teleport:
@@ -38,6 +38,11 @@ asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 asdf install ruby 3.3.2
 asdf global ruby 3.3.2
 asdf local ruby 3.3.2
+
+asdf plugin-add argocd https://github.com/beardix/asdf-argocd.git
+asdf install argocd 2.11.4
+asdf global argocd 2.11.4
+asdf local argocd 2.11.4
 ```
 
 ## Configuration
