@@ -3,7 +3,7 @@ function nf_signin() {
   USER=${1:-henry.davidson}
   PASSWORD=${2:-password}
 
-  BODY=$(curl -s -X POST \
+  BODY=$(curl --silent -X POST \
     -d "{\"username\": \"${USER}\", \"password\": \"${PASSWORD}\"}" \
     -H 'Content-Type: application/json' \
     http://localhost:3000/api/auth)
@@ -20,6 +20,31 @@ function nf_signin() {
   echo "Signed in as ${USER} (valid until $(echo "${BODY}" | jq -r '.refresh_expires_at'))"
 }
 
+# Sign out and clear token environment variables
+function nf_signout() {
+    if [[ ! ${REFRESH_TOKEN} ]]; then
+      echo "Error: REFRESH_TOKEN not set"
+
+      return
+    fi
+
+  BODY=$(curl --silent --fail -X DELETE \
+    -H 'Content-Type: application/json' \
+    -H "X-Refresh-Token: ${REFRESH_TOKEN}" \
+    http://localhost:3000/api/auth)
+
+  if [[ $? -eq 22 ]]; then
+    echo "Error signing out"
+
+    return
+  fi
+
+  unset ACCESS_TOKEN
+  unset REFRESH_TOKEN
+
+  echo "Signed out"
+}
+
 # Refresh the access token using the refresh token
 function nf_refresh() {
   if [[ ! ${REFRESH_TOKEN} ]]; then
@@ -28,7 +53,7 @@ function nf_refresh() {
     return
   fi
 
-  BODY=$(curl -s -X POST \
+  BODY=$(curl --silent -X POST \
     -H 'Content-Type: application/json' \
     -H "X-Refresh-Token: ${REFRESH_TOKEN}" \
     http://localhost:3000/api/auth/refresh)
@@ -53,13 +78,13 @@ function nf_token() {
   nf_signin nephroflow admin
 
   # Find or create integration token
-  TOKEN=$(curl -s -X POST \
+  TOKEN=$(curl --silent -X POST \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "{\"name\":\"${NAME}\",\"scope\":\"${SCOPE}\",\"expiration_period\":\"1_month\"}" \
     http://localhost:3000/api/users/integration_tokens | jq -r '.token')
 
-  EXPIRATION=$(curl -s -X GET \
+  EXPIRATION=$(curl --silent -X GET \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     http://localhost:3000/api/users/integration_tokens | jq -r ".integration_tokens[] | select(.name == \"${NAME}\") | .expiration_at")
 
@@ -79,7 +104,7 @@ function nf_get() {
     return 1
   fi
 
-  curl ${OPTIONS} -s -X GET \
+  curl ${OPTIONS} --silent -X GET \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     http://localhost:3000/api/${URL_PATH} | jq
 }
@@ -96,7 +121,7 @@ function nf_post() {
     return 1
   fi
 
-  curl ${OPTIONS} -s -X POST \
+  curl ${OPTIONS} --silent -X POST \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "${BODY}" \
@@ -115,7 +140,7 @@ function nf_patch() {
     return 1
   fi
 
-  curl ${OPTIONS} -s -X PATCH \
+  curl ${OPTIONS} --silent -X PATCH \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "${BODY}" \
