@@ -43,6 +43,16 @@ asdf plugin-add argocd https://github.com/beardix/asdf-argocd.git
 asdf install argocd 2.11.4
 asdf global argocd 2.11.4
 asdf local argocd 2.11.4
+
+asdf plugin-add azure-cli https://github.com/EcoMind/asdf-azure-cli
+asdf install azure-cli latest
+asdf global azure-cli latest
+asdf local azure-cli latest
+
+asdf plugin-add python https://github.com/asdf-community/asdf-python
+asdf install python latest
+asdf global python latest
+asdf local python latest
 ```
 
 ## Configuration
