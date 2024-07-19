@@ -1,5 +1,9 @@
 export NF_SERVER=http://localhost:3000
 
+##
+# Configuration functions
+#
+
 # Set default API server (default: http://localhost:3000)
 function nf_server() {
   SERVER=${1:-http://localhost:3000}
@@ -9,6 +13,9 @@ function nf_server() {
   echo "API server set to ${SERVER}"
 }
 
+##
+# Authentication functions
+#
 # Sign in as a user and set token environment variables (default username: henry.davidson)
 function nf_signin() {
   USER=${1:-henry.davidson}
@@ -104,6 +111,10 @@ function nf_token() {
   echo "Created integration token with scope ${SCOPE} (valid until ${EXPIRATION})"
 }
 
+##
+# HTTP functions
+#
+
 # GET a resource
 function nf_get() {
   URL_PATH=${1}
@@ -155,5 +166,20 @@ function nf_patch() {
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "${BODY}" \
+    ${NF_SERVER}/api/${URL_PATH} | jq
+}
+
+function nf_delete() {
+  URL_PATH=${1}
+  OPTIONS=${2}
+
+  if [[ ! ${URL_PATH} ]]; then
+    echo "Usage: ${0} URL_PATH [OPTIONS...]"
+
+    return 1
+  fi
+
+  curl ${OPTIONS} --silent -X DELETE \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     ${NF_SERVER}/api/${URL_PATH} | jq
 }
