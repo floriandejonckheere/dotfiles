@@ -1,4 +1,12 @@
 export NF_SERVER=http://localhost:3000
+export NF_DB_PREFIX=nephroflow_
+
+##
+# Helper functions
+#
+function nf_compose() {
+  docker compose -f ~/Code/nephroflow-api/compose.yaml "${@}"
+}
 
 ##
 # Configuration functions
@@ -11,6 +19,15 @@ function nf_server() {
   export NF_SERVER=${SERVER}
 
   echo "API server set to ${SERVER}"
+}
+
+# Set default database prefix (default: nephroflow_)
+function nf_db_prefix() {
+  PREFIX=${1:-nephroflow_}
+
+  export NF_DB_PREFIX=${PREFIX}
+
+  echo "Database prefix set to ${PREFIX}"
 }
 
 ##
@@ -182,4 +199,79 @@ function nf_delete() {
   curl ${OPTIONS} --silent -X DELETE \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     ${NF_SERVER}/api/${URL_PATH} | jq
+}
+
+##
+# Database functions
+#
+
+# Open a database console
+function nf_db() {
+  nf_compose exec postgres psql -U postgres "${@}"
+}
+
+# List databases
+function nf_db_ls() {
+  nf_db -c "\l"
+}
+
+# Kill all connections to a database
+function nf_db_kill() {
+  NAME=${1:-development}
+
+  nf_db -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE pid <> pg_backend_pid() AND datname='${NF_DB_PREFIX}${NAME}'"
+}
+
+# Create a database
+function nf_db_mk() {
+  NAME=${1}
+
+  if [[ ! ${NAME} ]]; then
+    echo "Usage: ${0} NAME"
+
+    return 1
+  fi
+
+  nf_db -c "CREATE DATABASE ${NF_DB_PREFIX}${NAME}"
+}
+
+# Drop a database
+function nf_db_rm() {
+  NAME=${1}
+
+  if [[ ! ${NAME} ]]; then
+    echo "Usage: ${0} NAME"
+
+    return 1
+  fi
+
+  nf_db -c "DROP DATABASE ${NF_DB_PREFIX}${NAME}"
+}
+
+# Rename a database
+function nf_db_mv() {
+  OLD_NAME=${1}
+  NEW_NAME=${2}
+
+  if [[ ! ${OLD_NAME} || ! ${NEW_NAME} ]]; then
+    echo "Usage: ${0} OLD_NAME NEW_NAME"
+
+    return 1
+  fi
+
+  nf_db -c "ALTER DATABASE ${NF_DB_PREFIX}${OLD_NAME} RENAME TO ${NF_DB_PREFIX}${NEW_NAME}"
+}
+
+# Copy a database
+function nf_db_cp() {
+  OLD_NAME=${1}
+  NEW_NAME=${2}
+
+  if [[ ! ${OLD_NAME} || ! ${NEW_NAME} ]]; then
+    echo "Usage: ${0} OLD_NAME NEW_NAME [PREFIX]"
+
+    return 1
+  fi
+
+  nf_db -c "CREATE DATABASE ${NF_DB_PREFIX}${NEW_NAME} TEMPLATE ${NF_DB_PREFIX}${OLD_NAME}"
 }
