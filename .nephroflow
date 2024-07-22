@@ -224,28 +224,28 @@ function nf_db_terminate() {
 
 # Create a database
 function nf_db_create() {
-  NAME=${1}
-
-  if [[ ! ${NAME} ]]; then
-    echo "Usage: ${0} NAME"
+  if [[ ! ${!} ]]; then
+    echo "Usage: ${0} NAME ..."
 
     return 1
   fi
 
-  nf_db -c "CREATE DATABASE ${NF_DB_PREFIX}${NAME}"
+  for NAME in "${@}"; do
+    nf_db -c "CREATE DATABASE ${NF_DB_PREFIX}${NAME}"
+  done
 }
 
 # Drop a database
 function nf_db_drop() {
-  NAME=${1}
-
-  if [[ ! ${NAME} ]]; then
-    echo "Usage: ${0} NAME"
+  if [[ ! ${1} ]]; then
+    echo "Usage: ${0} NAME ..."
 
     return 1
   fi
 
-  nf_db -c "DROP DATABASE ${NF_DB_PREFIX}${NAME}"
+  for NAME in "${@}"; do
+    nf_db -c "DROP DATABASE ${NF_DB_PREFIX}${NAME}"
+  done
 }
 
 # Rename a database
