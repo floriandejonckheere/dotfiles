@@ -5,7 +5,19 @@ export NF_DB_PREFIX=nephroflow_
 # Helper functions
 #
 function nf_compose() {
-  docker compose -f ~/Code/nephroflow-api/compose.yaml "${@}"
+  COMPOSE_FILE=~/Code/nephroflow-api/compose.yaml
+
+  if [[ ! -f ${COMPOSE_FILE} ]]; then
+    COMPOSE_FILE=~/Code/nephroflow-api/docker-compose.yml
+  fi
+
+  if [[ ! -f ${COMPOSE_FILE} ]]; then
+    echo "Error: ${COMPOSE_FILE} not found"
+
+    return
+  fi
+
+  docker compose -f "${COMPOSE_FILE}" "${@}"
 }
 
 ##
