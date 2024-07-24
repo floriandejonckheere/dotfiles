@@ -11,7 +11,7 @@ Install Homebrew:
 Install dependencies:
 
 ```sh
-brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq gh watch
+brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq gh watch ffmpeg
 ```
 
 Install teleport:
