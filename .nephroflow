@@ -217,6 +217,11 @@ function nf_delete() {
 # Database functions
 #
 
+# Connect to production database
+function nf_db_connect_prod() {
+  PGPASSWORD=${PG_PASSWORD} psql -h ${PG_HOST} -p ${PG_PORT} -U ${PG_USERNAME} -d ${PG_DATABASE}
+}
+
 # Open a database console
 function nf_db() {
   nf_compose exec postgres psql -U postgres "${@}"
