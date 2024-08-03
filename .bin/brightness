@@ -54,7 +54,7 @@ class Brightness
 
     return if options[:target].nil?
 
-    id = File.exists?(FILE) ? File.read(FILE).to_i : nil
+    id = File.exist?(FILE) ? File.read(FILE).to_i : nil
 
     # Send notification before setting brightness
     notification_id = notify(id)
