@@ -164,7 +164,7 @@ function nf_get() {
 function nf_post() {
   URL_PATH=${1}
   BODY=${2}
-  OPTIONS=${2}
+  OPTIONS=${3}
 
   if [[ ! ${BODY} ]]; then
     echo "Usage: ${0} URL_PATH JSON_BODY [OPTIONS...]"
