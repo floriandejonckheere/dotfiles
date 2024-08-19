@@ -25,24 +25,24 @@ Install tools:
 
 ```
 asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
-asdf install kubectl 1.27.7
-asdf global kubectl 1.27.7
-asdf local kubectl 1.27.7
+asdf install kubectl latest
+asdf global kubectl latest
+asdf local kubectl latest
 
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf install nodejs 22.2.0
-asdf global nodejs 22.2.0
-asdf local nodejs 22.2.0
+asdf install nodejs latest
+asdf global nodejs latest
+asdf local nodejs latest
 
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
-asdf install ruby 3.3.2
-asdf global ruby 3.3.2
-asdf local ruby 3.3.2
+asdf install ruby latest
+asdf global ruby latest
+asdf local ruby latest
 
 asdf plugin-add argocd https://github.com/beardix/asdf-argocd.git
-asdf install argocd 2.11.4
-asdf global argocd 2.11.4
-asdf local argocd 2.11.4
+asdf install argocd latest
+asdf global argocd latest
+asdf local argocd latest
 
 asdf plugin-add azure-cli https://github.com/EcoMind/asdf-azure-cli
 asdf install azure-cli latest
