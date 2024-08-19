@@ -88,6 +88,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Uncomment the following lines if you want to disable sharing command history between terminals.
+unsetopt share_history
+setopt no_share_history
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
