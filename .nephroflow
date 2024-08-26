@@ -236,6 +236,9 @@ function nf_db_ls() {
 function nf_db_terminate() {
   NAME=${1:-development}
 
+  # Remove prefix
+  NAME=${NAME#${NF_DB_PREFIX}}
+
   nf_db -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE pid <> pg_backend_pid() AND datname='${NF_DB_PREFIX}${NAME}'"
 }
 
@@ -267,8 +270,8 @@ function nf_db_drop() {
 
 # Rename a database
 function nf_db_rename() {
-  OLD_NAME=${1}
-  NEW_NAME=${2}
+  OLD_NAME=${1#${NF_DB_PREFIX}}
+  NEW_NAME=${2#${NF_DB_PREFIX}}
 
   if [[ ! ${OLD_NAME} || ! ${NEW_NAME} ]]; then
     echo "Usage: ${0} OLD_NAME NEW_NAME"
@@ -281,8 +284,8 @@ function nf_db_rename() {
 
 # Copy a database
 function nf_db_copy() {
-  OLD_NAME=${1}
-  NEW_NAME=${2}
+  OLD_NAME=${1#${NF_DB_PREFIX}}
+  NEW_NAME=${2#${NF_DB_PREFIX}}
 
   if [[ ! ${OLD_NAME} || ! ${NEW_NAME} ]]; then
     echo "Usage: ${0} OLD_NAME NEW_NAME [PREFIX]"
