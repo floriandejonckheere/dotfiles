@@ -224,7 +224,7 @@ function nf_db_connect_prod() {
 
 # Open a database console
 function nf_db() {
-  nf_compose exec postgres psql -U postgres "${@}"
+  nf_compose exec postgres psql -P pager -U postgres "${@}"
 }
 
 # List databases
