@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Florian Dejonckheere
-	email = florian@nephroflow.com
+	email = florian@floriandejonckheere.be
 	signingKey = 2BEDDCA4D7711645
 [commit]
 	gpgsign = true
