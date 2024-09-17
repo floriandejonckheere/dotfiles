@@ -132,10 +132,13 @@ alias rm='rm -I'
 alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 
 # Git aliases
-alias grbiom='git rebase -i origin/master'
+alias grbiom="git rebase --interactive $(git_main_branch)"
+alias gfarbom="git fetch --all && git rebase $(git_main_branch)"
+alias gfarbiom="git fetch --all && git rebase --interactive $(git_main_branch)"
+
 alias gcn='git commit -v --no-edit --no-verify'
 alias gcnn!='git commit -v --no-edit --amend --no-verify'
-alias gpuom='git push --set-upstream origin master'
+alias gpuom="git push --set-upstream origin $(git_main_branch)"
 
 # Ruby aliases
 alias rbcp='rubocop'
