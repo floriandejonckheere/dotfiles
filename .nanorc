@@ -4,6 +4,9 @@ include /usr/share/nano-syntax-highlighting/asciidoc.nanorc
 include /usr/share/nano-syntax-highlighting/asm.nanorc
 include /usr/share/nano-syntax-highlighting/awk.nanorc
 include /usr/share/nano-syntax-highlighting/batch.nanorc
+include /usr/share/nano-syntax-highlighting/beancount.nanorc
+include /usr/share/nano-syntax-highlighting/brainfuck.nanorc
+include /usr/share/nano-syntax-highlighting/Brewfile.nanorc
 include /usr/share/nano-syntax-highlighting/clojure.nanorc
 include /usr/share/nano-syntax-highlighting/cmake.nanorc
 include /usr/share/nano-syntax-highlighting/c.nanorc
@@ -17,6 +20,7 @@ include /usr/share/nano-syntax-highlighting/csh.nanorc
 include /usr/share/nano-syntax-highlighting/css.nanorc
 include /usr/share/nano-syntax-highlighting/csv.nanorc
 include /usr/share/nano-syntax-highlighting/cython.nanorc
+include /usr/share/nano-syntax-highlighting/d.nanorc
 include /usr/share/nano-syntax-highlighting/Dockerfile.nanorc
 include /usr/share/nano-syntax-highlighting/dotenv.nanorc
 include /usr/share/nano-syntax-highlighting/dot.nanorc
@@ -24,6 +28,7 @@ include /usr/share/nano-syntax-highlighting/elixir.nanorc
 include /usr/share/nano-syntax-highlighting/email.nanorc
 include /usr/share/nano-syntax-highlighting/erb.nanorc
 include /usr/share/nano-syntax-highlighting/etc-hosts.nanorc
+include /usr/share/nano-syntax-highlighting/expect.nanorc
 include /usr/share/nano-syntax-highlighting/fish.nanorc
 include /usr/share/nano-syntax-highlighting/fortran.nanorc
 include /usr/share/nano-syntax-highlighting/fsharp.nanorc
@@ -33,6 +38,7 @@ include /usr/share/nano-syntax-highlighting/gentoo.nanorc
 include /usr/share/nano-syntax-highlighting/gitcommit.nanorc
 include /usr/share/nano-syntax-highlighting/git.nanorc
 include /usr/share/nano-syntax-highlighting/glsl.nanorc
+include /usr/share/nano-syntax-highlighting/godot.nanorc
 include /usr/share/nano-syntax-highlighting/go.nanorc
 include /usr/share/nano-syntax-highlighting/gophermap.nanorc
 include /usr/share/nano-syntax-highlighting/gradle.nanorc
@@ -48,9 +54,11 @@ include /usr/share/nano-syntax-highlighting/ini.nanorc
 include /usr/share/nano-syntax-highlighting/inputrc.nanorc
 include /usr/share/nano-syntax-highlighting/jade.nanorc
 include /usr/share/nano-syntax-highlighting/java.nanorc
-include /usr/share/nano-syntax-highlighting/javascript.nanorc
+include /usr/share/nano-syntax-highlighting/jrnl.nanorc
 include /usr/share/nano-syntax-highlighting/js.nanorc
 include /usr/share/nano-syntax-highlighting/json.nanorc
+include /usr/share/nano-syntax-highlighting/jsx.nanorc
+include /usr/share/nano-syntax-highlighting/julia.nanorc
 include /usr/share/nano-syntax-highlighting/keymap.nanorc
 include /usr/share/nano-syntax-highlighting/kickstart.nanorc
 include /usr/share/nano-syntax-highlighting/kotlin.nanorc
@@ -65,6 +73,7 @@ include /usr/share/nano-syntax-highlighting/moonscript.nanorc
 include /usr/share/nano-syntax-highlighting/mpdconf.nanorc
 include /usr/share/nano-syntax-highlighting/mutt.nanorc
 include /usr/share/nano-syntax-highlighting/nanorc.nanorc
+include /usr/share/nano-syntax-highlighting/nanorc.sample
 include /usr/share/nano-syntax-highlighting/nginx.nanorc
 include /usr/share/nano-syntax-highlighting/nmap.nanorc
 include /usr/share/nano-syntax-highlighting/ocaml.nanorc
@@ -85,6 +94,7 @@ include /usr/share/nano-syntax-highlighting/properties.nanorc
 include /usr/share/nano-syntax-highlighting/pug.nanorc
 include /usr/share/nano-syntax-highlighting/puppet.nanorc
 include /usr/share/nano-syntax-highlighting/python.nanorc
+include /usr/share/nano-syntax-highlighting/rego.nanorc
 include /usr/share/nano-syntax-highlighting/reST.nanorc
 include /usr/share/nano-syntax-highlighting/Rnw.nanorc
 include /usr/share/nano-syntax-highlighting/rpmspec.nanorc
@@ -95,8 +105,10 @@ include /usr/share/nano-syntax-highlighting/sed.nanorc
 include /usr/share/nano-syntax-highlighting/sh.nanorc
 include /usr/share/nano-syntax-highlighting/sieve.nanorc
 include /usr/share/nano-syntax-highlighting/sls.nanorc
+include /usr/share/nano-syntax-highlighting/solidity.nanorc
 include /usr/share/nano-syntax-highlighting/sparql.nanorc
 include /usr/share/nano-syntax-highlighting/sql.nanorc
+include /usr/share/nano-syntax-highlighting/subrip.nanorc
 include /usr/share/nano-syntax-highlighting/svn.nanorc
 include /usr/share/nano-syntax-highlighting/swift.nanorc
 include /usr/share/nano-syntax-highlighting/systemd.nanorc
@@ -108,11 +120,13 @@ include /usr/share/nano-syntax-highlighting/twig.nanorc
 include /usr/share/nano-syntax-highlighting/vala.nanorc
 include /usr/share/nano-syntax-highlighting/verilog.nanorc
 include /usr/share/nano-syntax-highlighting/vi.nanorc
+include /usr/share/nano-syntax-highlighting/v.nanorc
 include /usr/share/nano-syntax-highlighting/x11basic.nanorc
 include /usr/share/nano-syntax-highlighting/xml.nanorc
 include /usr/share/nano-syntax-highlighting/xresources.nanorc
 include /usr/share/nano-syntax-highlighting/yaml.nanorc
 include /usr/share/nano-syntax-highlighting/yum.nanorc
+include /usr/share/nano-syntax-highlighting/zeek.nanorc
 include /usr/share/nano-syntax-highlighting/zig.nanorc
 include /usr/share/nano-syntax-highlighting/zsh.nanorc
 include /usr/share/nano-syntax-highlighting/zshrc.nanorc
