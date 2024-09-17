@@ -3,7 +3,7 @@
   tab_position = hidden
   scroll_tabbar = True
   enabled_plugins = CustomCommandsMenu, CurrDirOpen, TerminalShot, TerminatorThemes
-  suppress_multiple_term_dialog = True
+  ask_before_closing = never
   always_split_with_profile = True
 [keybindings]
   go_prev = <Primary><Shift>b
