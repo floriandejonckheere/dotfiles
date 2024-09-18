@@ -73,7 +73,6 @@ include /usr/share/nano-syntax-highlighting/moonscript.nanorc
 include /usr/share/nano-syntax-highlighting/mpdconf.nanorc
 include /usr/share/nano-syntax-highlighting/mutt.nanorc
 include /usr/share/nano-syntax-highlighting/nanorc.nanorc
-include /usr/share/nano-syntax-highlighting/nanorc.sample
 include /usr/share/nano-syntax-highlighting/nginx.nanorc
 include /usr/share/nano-syntax-highlighting/nmap.nanorc
 include /usr/share/nano-syntax-highlighting/ocaml.nanorc
