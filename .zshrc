@@ -132,9 +132,9 @@ alias rm='rm -I'
 alias mksrcinfo='makepkg --printsrcinfo > .SRCINFO'
 
 # Git aliases
-alias grbiom="git rebase --interactive $(git_main_branch)"
-alias gfarbom="git fetch --all && git rebase $(git_main_branch)"
-alias gfarbiom="git fetch --all && git rebase --interactive $(git_main_branch)"
+alias grbiom="git rebase --interactive origin/$(git_main_branch)"
+alias gfarbom="git fetch --all && git rebase origin/$(git_main_branch)"
+alias gfarbiom="git fetch --all && git rebase --interactive origin/$(git_main_branch)"
 
 alias gcn='git commit -v --no-edit --no-verify'
 alias gcnn!='git commit -v --no-edit --amend --no-verify'
