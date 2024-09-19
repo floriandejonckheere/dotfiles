@@ -264,6 +264,8 @@ function nf_db_drop() {
   fi
 
   for NAME in "${@}"; do
+    NAME=${NAME#${NF_DB_PREFIX}}
+
     nf_db -c "DROP DATABASE ${NF_DB_PREFIX}${NAME}"
   done
 }
