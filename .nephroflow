@@ -4,6 +4,8 @@ export NF_DB_PREFIX=nephroflow_
 ##
 # Helper functions
 #
+
+# Compose wrapper
 function nf_compose() {
   COMPOSE_FILE=~/Code/nephroflow-api/compose.yaml
 
@@ -45,6 +47,7 @@ function nf_db_prefix() {
 ##
 # Authentication functions
 #
+
 # Sign in as a user and set token environment variables (default username: henry.davidson)
 function nf_signin() {
   USER=${1:-henry.davidson}
@@ -296,4 +299,23 @@ function nf_db_copy() {
   fi
 
   nf_db -c "CREATE DATABASE ${NF_DB_PREFIX}${NEW_NAME} TEMPLATE ${NF_DB_PREFIX}${OLD_NAME}"
+}
+
+##
+# Docker functions
+#
+
+# Start the API server
+function nf_server() {
+  nf_compose run --rm --service-ports web rails s -b 0.0.0.0
+}
+
+# Open a shell
+function nf_shell() {
+  nf_compose run --rm web bash
+}
+
+# Open a Rails console
+function nf_console() {
+  nf_compose run --rm web rails c
 }
