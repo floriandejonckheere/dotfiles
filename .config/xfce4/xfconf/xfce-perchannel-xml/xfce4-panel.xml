@@ -18,7 +18,6 @@
         <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="6"/>
-        <value type="int" value="5"/>
         <value type="int" value="8"/>
         <value type="int" value="9"/>
         <value type="int" value="4"/>
@@ -54,6 +53,8 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “hyggent” active: hyggent (65%)"/>
+        <value type="string" value="wi-fi network connection “hyggent” active: hyggent (67%)"/>
         <value type="string" value="wi-fi network connection “hyggent” active: hyggent (77%) vpn connection active"/>
         <value type="string" value="tp-battery-icon"/>
         <value type="string" value="redshift-gtk"/>
@@ -67,6 +68,7 @@
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="toolbox"/>
         <value type="string" value="Vorta"/>
         <value type="string" value="clight-gui"/>
         <value type="string" value="vorta"/>
@@ -83,6 +85,7 @@
       <property name="volume-set" type="int" value="100"/>
       <property name="enable-multimedia-keys" type="bool" value="true"/>
       <property name="enable-mpris" type="bool" value="true"/>
+      <property name="known-players" type="string" value="Chromium"/>
     </property>
     <property name="plugin-9" type="string" value="power-manager-plugin"/>
     <property name="plugin-11" type="string" value="separator">
@@ -137,14 +140,6 @@
       <property name="global" type="empty">
         <property name="version" type="string" value="1.11.0"/>
       </property>
-    </property>
-    <property name="plugin-5" type="string" value="genmon">
-      <property name="command" type="string" value="/home/florian/.bin/tyyssija"/>
-      <property name="use-label" type="bool" value="false"/>
-      <property name="text" type="string" value="(genmon)"/>
-      <property name="update-period" type="int" value="120000"/>
-      <property name="enable-single-row" type="bool" value="true"/>
-      <property name="font" type="string" value="Noto Sans 11"/>
     </property>
   </property>
 </channel>
