@@ -131,9 +131,9 @@ esac
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias mvi="mv -i"
-alias grbiom="git rebase --interactive origin/$(git_main_branch)"
-alias gfarbom="git fetch --all && git rebase origin/$(git_main_branch)"
-alias gfarbiom="git fetch --all && git rebase --interactive origin/$(git_main_branch)"
+alias grbiom="git rebase --interactive origin $(git_main_branch)"
+alias gfarbom="git fetch --all && git rebase origin $(git_main_branch)"
+alias gfarbiom="git fetch --all && git rebase --interactive origin $(git_main_branch)"
 alias gcnn="git commit --no-verify"
 
 # Override docker-compose command
