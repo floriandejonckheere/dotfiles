@@ -306,7 +306,7 @@ function nf_db_copy() {
 #
 
 # Start the API server
-function nf_server() {
+function nf_api() {
   nf_compose run --rm --service-ports web rails s -b 0.0.0.0
 }
 
