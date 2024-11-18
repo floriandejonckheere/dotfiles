@@ -330,3 +330,8 @@ function nf_manager() {
     corepack pnpm run dev
   )
 }
+
+# Run a command until it fails
+function until_fail() {
+  while "$@"; do :; done
+}
