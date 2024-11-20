@@ -342,7 +342,7 @@ function until_fail() {
 
 # Autocorrect RuboCop offenses in changed files
 function nf_autocop() {
-  git diff --name-only | grep '\.rb$' | xargs rubocop --autocorrect-all --force-exclusion
+  git diff --staged --name-only | grep '\.rb$' | xargs rubocop --autocorrect-all --force-exclusion
 }
 
 # Autocorrect RuboCop offenses in changed files (compared to master)
