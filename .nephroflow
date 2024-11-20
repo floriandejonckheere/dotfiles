@@ -335,3 +335,17 @@ function nf_manager() {
 function until_fail() {
   while "$@"; do :; done
 }
+
+##
+# Development functions
+#
+
+# Autocorrect RuboCop offenses in changed files
+function nf_autocop() {
+  git diff --name-only | grep '\.rb$' | xargs rubocop -a
+}
+
+# Autocorrect RuboCop offenses in changed files (compared to master)
+function nf_mastercop() {
+  git diff-tree -r --no-commit-id --name-only $(git_main_branch)@\{u\} head | xargs ls -1 2>/dev/null | xargs rubocop --auto-correct-all --force-exclusion
+}
