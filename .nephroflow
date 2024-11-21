@@ -186,7 +186,7 @@ function nf_post() {
 function nf_patch() {
   URL_PATH=${1#"${NF_SERVER}/api"}
   BODY=${2}
-  OPTIONS=${2}
+  OPTIONS=${3}
 
   if [[ ! ${BODY} ]]; then
     echo "Usage: ${0} URL_PATH JSON_BODY [OPTIONS...]"
