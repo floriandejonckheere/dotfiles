@@ -65,6 +65,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 ## Configuration
 
+Configure git:
+
+```sh
+git config --global user.name "Florian Dejonckheere"
+git config --global user.email "florian@floriandejonckheere.be
+```
+
 Configure GPG:
 
 ```sh
