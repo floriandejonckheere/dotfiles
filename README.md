@@ -69,7 +69,7 @@ Configure git:
 
 ```sh
 git config --global user.name "Florian Dejonckheere"
-git config --global user.email "florian@floriandejonckheere.be
+git config --global user.email "florian@floriandejonckheere.be"
 ```
 
 Configure GPG:
