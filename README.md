@@ -21,6 +21,12 @@ curl -O https://cdn.teleport.dev/teleport-9.3.26.pkg
 sudo open teleport-9.3.26.pkg
 ```
 
+Install asdf:
+
+```sh
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
+```
+
 Install tools:
 
 ```
