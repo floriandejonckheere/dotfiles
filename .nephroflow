@@ -356,11 +356,11 @@ function nf_mastercop() {
 
 # Request authorization
 function nf_tsh_auth() {
-  ROLE=${1:-"customer-access"} # customer-access, demo-access
-  REASON=${2}
+  REASON=${1}
+  ROLE=${2:-"customer-access"} # customer-access, demo-access
 
-  if [[ ! ${ROLE} || ! ${REASON} ]]; then
-    echo "Usage: ${0} ROLE REASON"
+  if [[ ! ${REASON} || ! ${ROLE} ]]; then
+    echo "Usage: ${0} REASON ROLE"
 
     return 1
   fi
