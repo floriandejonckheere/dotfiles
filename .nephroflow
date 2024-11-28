@@ -149,7 +149,8 @@ function nf_token() {
 
 # GET a resource
 function nf_get() {
-  URL_PATH=${1#"${NF_SERVER}/api"}
+  URL_PATH=${1#"${NF_SERVER}/api/"}
+  URL_PATH=${URL_PATH#/api/}
   OPTIONS=${2}
 
   if [[ ! ${URL_PATH} ]]; then
@@ -165,7 +166,8 @@ function nf_get() {
 
 # POST a resource
 function nf_post() {
-  URL_PATH=${1#"${NF_SERVER}/api"}
+  URL_PATH=${1#"${NF_SERVER}/api/"}
+  URL_PATH=${URL_PATH#/api/}
   BODY=${2}
   OPTIONS=${3}
 
@@ -184,7 +186,8 @@ function nf_post() {
 
 # PATCH a resource
 function nf_patch() {
-  URL_PATH=${1#"${NF_SERVER}/api"}
+  URL_PATH=${1#"${NF_SERVER}/api/"}
+  URL_PATH=${URL_PATH#/api/}
   BODY=${2}
   OPTIONS=${3}
 
@@ -202,7 +205,8 @@ function nf_patch() {
 }
 
 function nf_delete() {
-  URL_PATH=${1#"${NF_SERVER}/api"}
+  URL_PATH=${1#"${NF_SERVER}/api/"}
+  URL_PATH=${URL_PATH#/api/}
   OPTIONS=${2}
 
   if [[ ! ${URL_PATH} ]]; then
