@@ -1,6 +1,10 @@
+#!/usr/bin/env zsh
+
 export NF_SERVER=http://localhost:3000
 export NF_DB_PREFIX=nephroflow_
-export NF_CURL_OPTIONS="--silent --fail --show-error"
+
+declare -a NF_CURL_OPTIONS
+export NF_CURL_OPTIONS=(--silent --fail --show-error)
 
 ##
 # Helper functions
@@ -47,11 +51,9 @@ function nf_db_prefix() {
 
 # Set default curl options (default: --silent --show-error)
 function nf_curl_options() {
-  OPTIONS=${1:-"--silent --fail --show-error"}
+  NF_CURL_OPTIONS=(${=@:-"--silent" "--fail" "--show-error"})
 
-  export NF_CURL_OPTIONS=${OPTIONS}
-
-  echo "cURL options set to ${OPTIONS}"
+  echo "cURL options set to ${NF_CURL_OPTIONS[*]}"
 }
 
 # Strip the API server from the URL
