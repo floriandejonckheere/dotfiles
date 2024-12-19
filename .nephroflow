@@ -1,5 +1,6 @@
 export NF_SERVER=http://localhost:3000
 export NF_DB_PREFIX=nephroflow_
+export NF_CURL_OPTIONS="--silent --fail --show-error"
 
 ##
 # Helper functions
@@ -44,6 +45,15 @@ function nf_db_prefix() {
   echo "Database prefix set to ${PREFIX}"
 }
 
+# Set default curl options (default: --silent --show-error)
+function nf_curl_options() {
+  OPTIONS=${1:-"--silent --fail --show-error"}
+
+  export NF_CURL_OPTIONS=${OPTIONS}
+
+  echo "cURL options set to ${OPTIONS}"
+}
+
 # Strip the API server from the URL
 function nf_url() {
   URL=${1}
@@ -69,7 +79,7 @@ function nf_signin() {
   USER=${1:-henry.davidson}
   PASSWORD=${2:-password}
 
-  BODY=$(curl --silent -X POST \
+  BODY=$(curl ${NF_CURL_OPTIONS} -X POST \
     -d "{\"username\": \"${USER}\", \"password\": \"${PASSWORD}\"}" \
     -H 'Content-Type: application/json' \
     ${NF_SERVER}/api/auth)
@@ -94,7 +104,7 @@ function nf_signout() {
       return
     fi
 
-  BODY=$(curl --silent --fail -X DELETE \
+  BODY=$(curl ${NF_CURL_OPTIONS} -X DELETE \
     -H 'Content-Type: application/json' \
     -H "X-Refresh-Token: ${REFRESH_TOKEN}" \
     ${NF_SERVER}/api/auth)
@@ -119,7 +129,7 @@ function nf_refresh() {
     return
   fi
 
-  BODY=$(curl --silent -X POST \
+  BODY=$(curl ${NF_CURL_OPTIONS} -X POST \
     -H 'Content-Type: application/json' \
     -H "X-Refresh-Token: ${REFRESH_TOKEN}" \
     ${NF_SERVER}/api/auth/refresh)
@@ -144,13 +154,13 @@ function nf_token() {
   nf_signin nephroflow admin &>/dev/null
 
   # Find or create integration token
-  TOKEN=$(curl --silent -X POST \
+  TOKEN=$(curl ${NF_CURL_OPTIONS} -X POST \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "{\"name\":\"${NAME}\",\"scope\":\"${SCOPE}\",\"expiration_period\":\"1_month\"}" \
     ${NF_SERVER}/api/users/integration_tokens | jq -r '.token')
 
-  EXPIRATION=$(curl --silent -X GET \
+  EXPIRATION=$(curl ${NF_CURL_OPTIONS} -X GET \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     ${NF_SERVER}/api/users/integration_tokens | jq -r ".integration_tokens[] | select(.name == \"${NAME}\") | .expiration_at")
 
@@ -174,7 +184,7 @@ function nf_get() {
     return 1
   fi
 
-  curl ${OPTIONS} --silent -X GET \
+  curl ${OPTIONS} ${NF_CURL_OPTIONS} -X GET \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     ${NF_SERVER}/api/${URL_PATH} | jq
 }
@@ -191,7 +201,7 @@ function nf_post() {
     return 1
   fi
 
-  curl ${OPTIONS} --silent -X POST \
+  curl ${OPTIONS} ${NF_CURL_OPTIONS} -X POST \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "${BODY}" \
@@ -210,7 +220,7 @@ function nf_patch() {
     return 1
   fi
 
-  curl ${OPTIONS} --silent -X PATCH \
+  curl ${OPTIONS} ${NF_CURL_OPTIONS} -X PATCH \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "${BODY}" \
@@ -227,7 +237,7 @@ function nf_delete() {
     return 1
   fi
 
-  curl ${OPTIONS} --silent -X DELETE \
+  curl ${OPTIONS} ${NF_CURL_OPTIONS} -X DELETE \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     ${NF_SERVER}/api/${URL_PATH} | jq
 }
