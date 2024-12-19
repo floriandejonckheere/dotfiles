@@ -27,6 +27,11 @@ function nf_compose() {
   docker compose -f "${COMPOSE_FILE}" "${@}"
 }
 
+# Run a command until it fails
+function until_fail() {
+  while "$@"; do :; done
+}
+
 ##
 # Configuration functions
 #
@@ -359,11 +364,6 @@ function nf_manager() {
     corepack pnpm install
     corepack pnpm run dev
   )
-}
-
-# Run a command until it fails
-function until_fail() {
-  while "$@"; do :; done
 }
 
 ##
