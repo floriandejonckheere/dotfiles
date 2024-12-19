@@ -44,6 +44,22 @@ function nf_db_prefix() {
   echo "Database prefix set to ${PREFIX}"
 }
 
+# Strip the API server from the URL
+function nf_url() {
+  URL=${1}
+
+  if [[ ! ${URL} ]]; then
+    echo "Usage: ${0} URL"
+
+    return 1
+  fi
+
+  # Strip protocol, ://, hostname, port, and /api
+  URL=$(echo "${URL}" | sed -E 's/^\s*(.*:\/\/)?[^\/]*\/?api\/?//g')
+
+  echo "${URL}"
+}
+
 ##
 # Authentication functions
 #
@@ -149,8 +165,7 @@ function nf_token() {
 
 # GET a resource
 function nf_get() {
-  URL_PATH=${1#"${NF_SERVER}/api/"}
-  URL_PATH=${URL_PATH#/api/}
+  URL_PATH=$(nf_url "${1}")
   OPTIONS=${2}
 
   if [[ ! ${URL_PATH} ]]; then
@@ -166,8 +181,7 @@ function nf_get() {
 
 # POST a resource
 function nf_post() {
-  URL_PATH=${1#"${NF_SERVER}/api/"}
-  URL_PATH=${URL_PATH#/api/}
+  URL_PATH=$(nf_url "${1}")
   BODY=${2}
   OPTIONS=${3}
 
@@ -186,8 +200,7 @@ function nf_post() {
 
 # PATCH a resource
 function nf_patch() {
-  URL_PATH=${1#"${NF_SERVER}/api/"}
-  URL_PATH=${URL_PATH#/api/}
+  URL_PATH=$(nf_url "${1}")
   BODY=${2}
   OPTIONS=${3}
 
@@ -205,8 +218,7 @@ function nf_patch() {
 }
 
 function nf_delete() {
-  URL_PATH=${1#"${NF_SERVER}/api/"}
-  URL_PATH=${URL_PATH#/api/}
+  URL_PATH=$(nf_url "${1}")
   OPTIONS=${2}
 
   if [[ ! ${URL_PATH} ]]; then
