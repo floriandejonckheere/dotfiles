@@ -355,12 +355,11 @@ function nf_console() {
 
 # Start the Manager
 function nf_manager() {
-  BRANCH=${1:-main}
+  BRANCH=${1}
 
   (
     cd ~/Code/nephroflow-manager || return
-    git checkout ${BRANCH}
-    git pull
+    [[ ${BRANCH} ]] && (git checkout ${BRANCH}; git pull --ff-only)
     corepack pnpm install
     corepack pnpm run dev
   )
