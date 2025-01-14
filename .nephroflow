@@ -183,7 +183,7 @@ function nf_token() {
 # GET a resource
 function nf_get() {
   URL_PATH=$(nf_url "${1}")
-  OPTIONS=${2}
+  OPTIONS=(${@:2})
 
   if [[ ! ${URL_PATH} ]]; then
     echo "Usage: ${0} URL_PATH [OPTIONS...]"
@@ -191,16 +191,18 @@ function nf_get() {
     return 1
   fi
 
+set -x
   curl ${OPTIONS} ${NF_CURL_OPTIONS} -X GET \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     ${NF_SERVER}/api/${URL_PATH} | jq
+    set +x
 }
 
 # POST a resource
 function nf_post() {
   URL_PATH=$(nf_url "${1}")
   BODY=${2}
-  OPTIONS=${3}
+  OPTIONS=(${@:3})
 
   if [[ ! ${BODY} ]]; then
     echo "Usage: ${0} URL_PATH JSON_BODY [OPTIONS...]"
@@ -219,7 +221,7 @@ function nf_post() {
 function nf_patch() {
   URL_PATH=$(nf_url "${1}")
   BODY=${2}
-  OPTIONS=${3}
+  OPTIONS=(${@:3})
 
   if [[ ! ${BODY} ]]; then
     echo "Usage: ${0} URL_PATH JSON_BODY [OPTIONS...]"
@@ -236,7 +238,7 @@ function nf_patch() {
 
 function nf_delete() {
   URL_PATH=$(nf_url "${1}")
-  OPTIONS=${2}
+  OPTIONS=(${@:2})
 
   if [[ ! ${URL_PATH} ]]; then
     echo "Usage: ${0} URL_PATH [OPTIONS...]"
