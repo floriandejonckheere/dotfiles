@@ -85,8 +85,9 @@ function nf_url() {
 function nf_signin() {
   USER=${1:-henry.davidson}
   PASSWORD=${2:-password}
+  OPTIONS=(${@:3})
 
-  BODY=$(curl ${NF_CURL_OPTIONS} -X POST \
+  BODY=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X POST \
     -d "{\"username\": \"${USER}\", \"password\": \"${PASSWORD}\"}" \
     -H 'Content-Type: application/json' \
     ${NF_SERVER}/api/auth)
@@ -105,13 +106,15 @@ function nf_signin() {
 
 # Sign out and clear token environment variables
 function nf_signout() {
+  OPTIONS=(${@})
+
     if [[ ! ${REFRESH_TOKEN} ]]; then
       echo "Error: REFRESH_TOKEN not set"
 
       return
     fi
 
-  BODY=$(curl ${NF_CURL_OPTIONS} -X DELETE \
+  BODY=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X DELETE \
     -H 'Content-Type: application/json' \
     -H "X-Refresh-Token: ${REFRESH_TOKEN}" \
     ${NF_SERVER}/api/auth)
@@ -130,13 +133,15 @@ function nf_signout() {
 
 # Refresh the access token using the refresh token
 function nf_refresh() {
+  OPTIONS=(${@})
+
   if [[ ! ${REFRESH_TOKEN} ]]; then
     echo "Error: REFRESH_TOKEN not set"
 
     return
   fi
 
-  BODY=$(curl ${NF_CURL_OPTIONS} -X POST \
+  BODY=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X POST \
     -H 'Content-Type: application/json' \
     -H "X-Refresh-Token: ${REFRESH_TOKEN}" \
     ${NF_SERVER}/api/auth/refresh)
@@ -156,18 +161,19 @@ function nf_refresh() {
 function nf_token() {
   SCOPE=${1:-"link"}
   NAME="${SCOPE}-${RANDOM}"
+  OPTIONS=(${@:2})
 
   # Sign in as administrator
-  nf_signin nephroflow admin &>/dev/null
+  nf_signin nephroflow admin &> /dev/null
 
   # Find or create integration token
-  TOKEN=$(curl ${NF_CURL_OPTIONS} -X POST \
+  TOKEN=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X POST \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "{\"name\":\"${NAME}\",\"scope\":\"${SCOPE}\",\"expiration_period\":\"1_month\"}" \
     ${NF_SERVER}/api/users/integration_tokens | jq -r '.token')
 
-  EXPIRATION=$(curl ${NF_CURL_OPTIONS} -X GET \
+  EXPIRATION=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X GET \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     ${NF_SERVER}/api/users/integration_tokens | jq -r ".integration_tokens[] | select(.name == \"${NAME}\") | .expiration_at")
 
