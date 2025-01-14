@@ -161,21 +161,17 @@ function nf_refresh() {
 function nf_token() {
   SCOPE=${1:-"link"}
   NAME="${SCOPE}-${RANDOM}"
-  OPTIONS=(${@:2})
 
   # Sign in as administrator
   nf_signin nephroflow admin &> /dev/null
 
   # Find or create integration token
-  TOKEN=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X POST \
-    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
-    -H 'Content-Type: application/json' \
-    -d "{\"name\":\"${NAME}\",\"scope\":\"${SCOPE}\",\"expiration_period\":\"1_month\"}" \
-    ${NF_SERVER}/api/users/integration_tokens | jq -r '.token')
+  TOKEN=$(nf_post \
+    ${NF_SERVER}/api/users/integration_tokens \
+    "{\"name\":\"${NAME}\",\"scope\":\"${SCOPE}\",\"expiration_period\":\"1_month\"}" \
+    | jq -r '.token')
 
-  EXPIRATION=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X GET \
-    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
-    ${NF_SERVER}/api/users/integration_tokens | jq -r ".integration_tokens[] | select(.name == \"${NAME}\") | .expiration_at")
+  EXPIRATION=$(nf_get /api/users/integration_tokens | jq -r ".integration_tokens[] | select(.name == \"${NAME}\") | .expiration_at")
 
   export ACCESS_TOKEN=${TOKEN}
 
