@@ -328,12 +328,48 @@ function nf_db_copy() {
   NEW_NAME=${2#${NF_DB_PREFIX}}
 
   if [[ ! ${OLD_NAME} || ! ${NEW_NAME} ]]; then
-    echo "Usage: ${0} OLD_NAME NEW_NAME [PREFIX]"
+    echo "Usage: ${0} OLD_NAME NEW_NAME"
 
     return 1
   fi
 
   nf_db -c "CREATE DATABASE ${NF_DB_PREFIX}${NEW_NAME} TEMPLATE ${NF_DB_PREFIX}${OLD_NAME}"
+
+  echo "Database ${NF_DB_PREFIX}${OLD_NAME} copied to ${NF_DB_PREFIX}${NEW_NAME}"
+}
+
+# Dump a database to a file
+function nf_db_dump() {
+  NAME=${1#"${NF_DB_PREFIX}"}
+  NAME=${NAME:-development}
+  FILE=${2:-${NF_DB_PREFIX}${NAME}.sql}
+
+  if [[ ! ${NAME} ]]; then
+    echo "Usage: ${0} NAME [FILE]"
+
+    return 1
+  fi
+
+  nf_compose exec postgres pg_dump -U postgres "${NF_DB_PREFIX}${NAME}" > "${FILE}"
+
+  echo "Database ${NF_DB_PREFIX}${NAME} dumped to ${FILE}"
+}
+
+# Load a database from a file
+nf_db_load() {
+  NAME=${1#"${NF_DB_PREFIX}"}
+  NAME=${NAME:-development}
+  FILE=${2:-${NF_DB_PREFIX}${NAME}.sql}
+
+  if [[ ! ${NAME} ]]; then
+    echo "Usage: ${0} NAME [FILE]"
+
+    return 1
+  fi
+
+  nf_compose exec -T postgres psql -U postgres "${NF_DB_PREFIX}${NAME}" < "${FILE}"
+
+  echo "Database ${NF_DB_PREFIX}${NAME} loaded from ${FILE}"
 }
 
 ##
