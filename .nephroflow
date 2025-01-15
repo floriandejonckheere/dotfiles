@@ -380,6 +380,18 @@ nf_db_load() {
   echo "Database ${NF_DB_PREFIX}${NAME} loaded from ${FILE}"
 }
 
+# Create a datestamped snapshot of a database
+function nf_db_snapshot() {
+  # NephroFlow major version
+  VERSION=$(sed -nE 's/ *DEV_VERSION = "([0-9]*)\.[0-9]*\.[0-9]*.*"/\1/p' ~/Code/nephroflow-api/lib/nephroflow/version.rb)
+  NAME=${1#"${NF_DB_PREFIX}"}
+  NAME=${NAME:-development}
+
+  nf_db_copy "${NAME}" "${NAME}_${VERSION}_$(date +%Y%m%d)" > /dev/null
+
+  echo "Database ${NF_DB_PREFIX}${NAME} snapshot ${NAME}_${VERSION}_$(date +%Y%m%d) created"
+}
+
 ##
 # Docker functions
 #
