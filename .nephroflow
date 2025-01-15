@@ -324,8 +324,8 @@ function nf_db_rename() {
 
 # Copy a database
 function nf_db_copy() {
-  OLD_NAME=${1#${NF_DB_PREFIX}}
-  NEW_NAME=${2#${NF_DB_PREFIX}}
+  OLD_NAME=${1#"${NF_DB_PREFIX}"}
+  NEW_NAME=${2#"${NF_DB_PREFIX}"}
 
   if [[ ! ${OLD_NAME} || ! ${NEW_NAME} ]]; then
     echo "Usage: ${0} OLD_NAME NEW_NAME"
