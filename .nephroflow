@@ -1,8 +1,15 @@
 #!/usr/bin/env zsh
 
+# URL for the NephroFlow API server
 export NF_SERVER=http://localhost:3000
+
+# Path to directory containing the repositories
+export NF_PATH=~/Code
+
+# Database prefix
 export NF_DB_PREFIX=nephroflow_
 
+# cURL options
 declare -a NF_CURL_OPTIONS
 export NF_CURL_OPTIONS=(--silent --fail --show-error)
 
@@ -12,10 +19,10 @@ export NF_CURL_OPTIONS=(--silent --fail --show-error)
 
 # Compose wrapper
 function nf_compose() {
-  COMPOSE_FILE=~/Code/nephroflow-api/compose.yaml
+  COMPOSE_FILE="${NF_PATH}/nephroflow-api/compose.yaml"
 
   if [[ ! -f ${COMPOSE_FILE} ]]; then
-    COMPOSE_FILE=~/Code/nephroflow-api/docker-compose.yml
+    COMPOSE_FILE="${NF_PATH}/nephroflow-api/docker-compose.yml"
   fi
 
   if [[ ! -f ${COMPOSE_FILE} ]]; then
@@ -43,6 +50,14 @@ function nf_server() {
   export NF_SERVER=${SERVER}
 
   echo "API server set to ${SERVER}"
+}
+
+function nf_path() {
+  _PATH=${1:-~/Code}
+
+  export NF_PATH=${_PATH}
+
+  echo "Repositories path set to ${_PATH}"
 }
 
 # Set default database prefix (default: nephroflow_)
@@ -390,7 +405,7 @@ nf_db_load() {
 # Create a datestamped snapshot of a database
 function nf_db_snapshot() {
   # NephroFlow major version
-  VERSION=$(sed -nE 's/ *DEV_VERSION = "([0-9]*)\.[0-9]*\.[0-9]*.*"/\1/p' ~/Code/nephroflow-api/lib/nephroflow/version.rb)
+  VERSION=$(sed -nE 's/ *DEV_VERSION = "([0-9]*)\.[0-9]*\.[0-9]*.*"/\1/p' "${NF_PATH}/nephroflow-api/lib/nephroflow/version.rb")
 
   # Remove prefix
   DATABASE=${1#"${NF_DB_PREFIX}"}
@@ -425,7 +440,7 @@ function nf_manager() {
   BRANCH=${1}
 
   (
-    cd ~/Code/nephroflow-manager || return
+    cd "${NF_PATH}/nephroflow-manager" || return
     [[ ${BRANCH} ]] && (git checkout ${BRANCH}; git pull --ff-only)
     corepack pnpm install
     corepack pnpm run dev
