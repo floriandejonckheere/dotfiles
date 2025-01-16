@@ -113,8 +113,11 @@ function nf_signin() {
     return
   fi
 
-  export REFRESH_TOKEN=$(echo "${BODY}" | jq -r '.refresh')
-  export ACCESS_TOKEN=$(echo "${BODY}" | jq -r '.access')
+  REFRESH_TOKEN=$(echo "${BODY}" | jq -r '.refresh')
+  export REFRESH_TOKEN
+
+  ACCESS_TOKEN=$(echo "${BODY}" | jq -r '.access')
+  export ACCESS_TOKEN
 
   echo "Signed in as ${USER} (valid until $(echo "${BODY}" | jq -r '.refresh_expires_at'))"
 }
@@ -167,7 +170,8 @@ function nf_refresh() {
     return
   fi
 
-  export ACCESS_TOKEN=$(echo "${BODY}" | jq -r '.access')
+  ACCESS_TOKEN=$(echo "${BODY}" | jq -r '.access')
+  export ACCESS_TOKEN
 
   echo "Refreshed access token (valid until $(echo "${BODY}" | jq -r '.access_expires_at'))"
 }
@@ -188,7 +192,8 @@ function nf_token() {
 
   EXPIRATION=$(nf_get /api/users/integration_tokens | jq -r ".integration_tokens[] | select(.name == \"${NAME}\") | .expiration_at")
 
-  export ACCESS_TOKEN=${TOKEN}
+  ACCESS_TOKEN=${TOKEN}
+  export ACCESS_TOKEN
 
   echo "Created integration token with scope ${SCOPE} (valid until ${EXPIRATION})"
 }
