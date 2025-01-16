@@ -375,7 +375,8 @@ function nf_db_dump() {
   DATABASE=${1#"${NF_DB_PREFIX}"}
   DATABASE=${DATABASE:-development}
 
-  FILE=${2:-${NF_DB_PREFIX}${DATABASE}.sql}
+  FILE=${2:-${NF_DB_PREFIX}${DATABASE}}
+  FILE="${FILE%.sql}.sql.gz"
 
   if [[ ! ${DATABASE} ]]; then
     echo "Usage: ${0} DATABASE [FILE]"
@@ -383,7 +384,7 @@ function nf_db_dump() {
     return 1
   fi
 
-  nf_compose exec postgres pg_dump -U postgres "${NF_DB_PREFIX}${DATABASE}" > "${FILE}"
+  nf_compose exec postgres pg_dump -U postgres "${NF_DB_PREFIX}${DATABASE}" | gzip > "${FILE}"
 
   echo "Database ${NF_DB_PREFIX}${DATABASE} dumped to ${FILE}"
 }
@@ -394,7 +395,8 @@ nf_db_load() {
   DATABASE=${1#"${NF_DB_PREFIX}"}
   DATABASE=${DATABASE:-development}
 
-  FILE=${2:-${NF_DB_PREFIX}${DATABASE}.sql}
+  FILE=${2:-${NF_DB_PREFIX}${DATABASE}}
+  FILE="${FILE%.sql}.sql.gz"
 
   if [[ ! ${DATABASE} ]]; then
     echo "Usage: ${0} DATABASE [FILE]"
@@ -402,7 +404,7 @@ nf_db_load() {
     return 1
   fi
 
-  nf_compose exec -T postgres psql -U postgres "${NF_DB_PREFIX}${DATABASE}" < "${FILE}"
+  gunzip -c "${FILE}" | nf_compose exec -T postgres psql -U postgres "${NF_DB_PREFIX}${DATABASE}" > /dev/null
 
   echo "Database ${NF_DB_PREFIX}${DATABASE} loaded from ${FILE}"
 }
