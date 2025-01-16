@@ -507,3 +507,23 @@ function nf_tsh_forward() {
 
   tsh ssh -L 127.0.0.1:${LOCALPORT}:127.0.0.1:${PORT} nephroflow@${HOST}
 }
+
+##
+# Teleport functions
+#
+
+# Scale debug container
+function nf_k_scale() {
+  NAMESPACE=${1}
+  REPLICAS=${2:-1}
+
+  if [[ ! ${NAMESPACE} ]]; then
+    echo "Usage: ${0} NAMESPACE [REPLICAS]"
+
+    return 1
+  fi
+
+  kubectl scale deployment debug --namespace="${NAMESPACE}" --replicas="${REPLICAS}" > /dev/null
+
+  echo "Debug container scaled to ${REPLICAS} in ${NAMESPACE}"
+}
