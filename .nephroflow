@@ -472,6 +472,11 @@ function nf_maincop() {
 # Teleport functions
 #
 
+# Login
+function nf_tsh_login() {
+  tsh login --proxy=teleport.nephroflow.com
+}
+
 # Request authorization
 function nf_tsh_auth() {
   REASON=${1}
