@@ -175,8 +175,8 @@ alias dcfgls="docker config ls"
 alias dcfgrm="docker config rm"
 
 # Docker compose contexts
-alias dccloud="docker --context cloud compose -f ~/Code/fcloud/compose.yaml"
-alias dcrlyeh="docker --context rlyeh compose -f ~/Code/fcloud/rlyeh/compose.yaml"
+alias dccloud="docker --context cloud compose -f ~/Code/fcloud/compose/cloud/compose.yaml"
+alias dcrlyeh="docker --context rlyeh compose -f ~/Code/fcloud/compose/rlyeh/compose.yaml"
 
 # Lazy-load NVM
 alias nvm="unalias nvm; source /usr/share/nvm/init-nvm.sh; nvm $@"
