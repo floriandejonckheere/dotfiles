@@ -256,6 +256,7 @@ function nf_patch() {
     ${NF_SERVER}/api/${URL_PATH} | jq
 }
 
+# DELETE a resource
 function nf_delete() {
   URL_PATH=$(nf_url "${1}")
   OPTIONS=(${@:2})
