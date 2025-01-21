@@ -215,7 +215,7 @@ function nf_get() {
 
   curl ${OPTIONS} ${NF_CURL_OPTIONS} -X GET \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
-    ${NF_SERVER}/api/${URL_PATH} | jq
+    "${NF_SERVER}/api/${URL_PATH}" | jq
 }
 
 # POST a resource
