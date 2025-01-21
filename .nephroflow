@@ -390,7 +390,7 @@ function nf_db_dump() {
 }
 
 # Load a database from a file
-nf_db_load() {
+function nf_db_load() {
   # Remove prefix
   DATABASE=${1#"${NF_DB_PREFIX}"}
   DATABASE=${DATABASE:-development}
