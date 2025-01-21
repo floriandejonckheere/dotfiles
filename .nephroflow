@@ -509,7 +509,7 @@ function nf_tsh_forward() {
 }
 
 ##
-# Teleport functions
+# Kubernetes functions
 #
 
 # Scale debug container
