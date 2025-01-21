@@ -469,6 +469,55 @@ function nf_maincop() {
   git diff-tree -r --no-commit-id --name-only $(git_main_branch)@\{u\} head | xargs ls -1 2>/dev/null | xargs rubocop --autocorrect-all --force-exclusion
 }
 
+# Send a machine data message
+function nf_machine_data() {
+  if [[ ${SHELL} != "/bin/zsh" ]]; then
+    echo "Error: This function requires Zsh"
+
+    return 1
+  fi
+
+  if [[ ! ${1} ]]; then
+    echo "Usage: ${0} [machine_id=nipro_surdial_x] [serial_number=4A0312620B59] [patient_id=1234567890] parameter_name=parameter_value..."
+
+    return 1
+  fi
+
+  if [[ ! ${ACCESS_TOKEN} ]]; then
+    echo "Error: ACCESS_TOKEN not set"
+
+    return 1
+  fi
+
+  # Declare associative array
+  declare -A PARAMETERS
+
+  # Parse argument separated by equals sign
+  for ARGUMENT in "${@}"; do
+    KEY=$(echo "${ARGUMENT}" | cut -d= -f1)
+    VALUE=$(echo "${ARGUMENT}" | cut -d= -f2)
+
+    PARAMETERS[${KEY}]="${VALUE}"
+  done
+
+  # Extract essential information
+  MACHINE_ID=${PARAMETERS["machine_id"]:-"nipro_surdial_x"}
+  SERIAL_NUMBER=${PARAMETERS["serial_number"]:-"4A0312620B59"}
+  PATIENT_ID=${PARAMETERS["patient_id"]:-"1234567890"}
+
+  # Convert remaining parameters into JSON
+  unset 'PARAMETERS[machine_id]'
+  unset 'PARAMETERS[serial_number]'
+
+  PARAMETERS=$(for KEY VALUE in ${(kv)PARAMETERS}; do
+    echo "{\"name\": \"${KEY}\",\"value\": \"${VALUE}\"}"
+  done | paste -sd "," -)
+
+  DATA="{\"timestamp\":\"$(date -u)\",\"device_id\":\"cd0c0bc1-3df3-3754-15c2-66bf3b0c5963\",\"machine_id\":\"${MACHINE_ID}\",\"serial_number\":\"${SERIAL_NUMBER}\",\"patient_id\":\"${PATIENT_ID}\",\"parameters\":[${PARAMETERS}]}"
+
+  nf_post command/IntegrateMachineData "${DATA}"
+}
+
 ##
 # Teleport functions
 #
