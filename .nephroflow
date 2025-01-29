@@ -562,10 +562,11 @@ function nf_tsh_forward() {
 # Kubernetes functions
 #
 
-# Scale debug container
+# Scale pods up or down
 function nf_k_scale() {
   NAMESPACE=${1}
-  REPLICAS=${2:-1}
+  POD=${2:-debug}
+  REPLICAS=${3:-1}
 
   if [[ ! ${NAMESPACE} ]]; then
     echo "Usage: ${0} NAMESPACE [REPLICAS]"
@@ -573,7 +574,7 @@ function nf_k_scale() {
     return 1
   fi
 
-  kubectl scale deployment debug --namespace="${NAMESPACE}" --replicas="${REPLICAS}" > /dev/null
+  kubectl scale deployment ${POD} --namespace="${NAMESPACE}" --replicas="${REPLICAS}" > /dev/null
 
-  echo "Debug container scaled to ${REPLICAS} in ${NAMESPACE}"
+  echo "${POD} pod scaled to ${REPLICAS} in ${NAMESPACE}"
 }
