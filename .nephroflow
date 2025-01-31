@@ -96,6 +96,27 @@ function nf_url() {
 # Authentication functions
 #
 
+# Return the signed in username
+function nf_current_user() {
+  if [[ ! ${ACCESS_TOKEN} ]]; then
+    echo "Not signed in"
+
+    return 1
+  fi
+
+  NF_USERNAME=$(nf_get /api/current_user --no-show-error | jq -r '.user.username')
+
+  if [[ "${NF_USERNAME}" != "" ]]; then
+    echo "Signed in as ${NF_USERNAME}"
+
+    return 0
+  fi
+
+  echo "Not signed in"
+
+  return 1
+}
+
 # Sign in as a user and set token environment variables (default username: henry.davidson)
 function nf_signin() {
   USER=${1:-henry.davidson}
