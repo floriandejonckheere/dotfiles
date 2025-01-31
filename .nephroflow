@@ -102,7 +102,7 @@ function nf_signin() {
   PASSWORD=${2:-password}
   OPTIONS=(${@:3})
 
-  BODY=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X POST \
+  BODY=$(curl ${NF_CURL_OPTIONS} ${OPTIONS} -X POST \
     -d "{\"username\": \"${USER}\", \"password\": \"${PASSWORD}\"}" \
     -H 'Content-Type: application/json' \
     ${NF_SERVER}/api/auth)
@@ -132,7 +132,7 @@ function nf_signout() {
       return
     fi
 
-  BODY=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X DELETE \
+  BODY=$(curl ${NF_CURL_OPTIONS} ${OPTIONS} -X DELETE \
     -H 'Content-Type: application/json' \
     -H "X-Refresh-Token: ${REFRESH_TOKEN}" \
     ${NF_SERVER}/api/auth)
@@ -159,7 +159,7 @@ function nf_refresh() {
     return
   fi
 
-  BODY=$(curl ${OPTIONS} ${NF_CURL_OPTIONS} -X POST \
+  BODY=$(curl ${NF_CURL_OPTIONS} ${OPTIONS} -X POST \
     -H 'Content-Type: application/json' \
     -H "X-Refresh-Token: ${REFRESH_TOKEN}" \
     ${NF_SERVER}/api/auth/refresh)
@@ -213,7 +213,7 @@ function nf_get() {
     return 1
   fi
 
-  curl ${OPTIONS} ${NF_CURL_OPTIONS} -X GET \
+  curl ${NF_CURL_OPTIONS} ${OPTIONS} -X GET \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     "${NF_SERVER}/api/${URL_PATH}" | jq
 }
@@ -230,7 +230,7 @@ function nf_post() {
     return 1
   fi
 
-  curl ${OPTIONS} ${NF_CURL_OPTIONS} -X POST \
+  curl ${NF_CURL_OPTIONS} ${OPTIONS} -X POST \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "${BODY}" \
@@ -249,7 +249,7 @@ function nf_patch() {
     return 1
   fi
 
-  curl ${OPTIONS} ${NF_CURL_OPTIONS} -X PATCH \
+  curl ${NF_CURL_OPTIONS} ${OPTIONS} -X PATCH \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     -H 'Content-Type: application/json' \
     -d "${BODY}" \
@@ -267,7 +267,7 @@ function nf_delete() {
     return 1
   fi
 
-  curl ${OPTIONS} ${NF_CURL_OPTIONS} -X DELETE \
+  curl ${NF_CURL_OPTIONS} ${OPTIONS} -X DELETE \
     -H "Authorization: Bearer ${ACCESS_TOKEN}" \
     ${NF_SERVER}/api/${URL_PATH} | jq
 }
