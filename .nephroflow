@@ -499,7 +499,7 @@ function nf_machine_data() {
   fi
 
   if [[ ! ${1} ]]; then
-    echo "Usage: ${0} [machine_id=nipro_surdial_x] [serial_number=4A0312620B59] [patient_id=1234567890] parameter_name=parameter_value..."
+    echo "Usage: ${0} [machine_id=nipro_surdial_x] [serial_number=4A0312620B59] [device_id=bd0e842c-4866-676d-ec84-89da3f2707c2] [patient_id=1234567890] parameter_name=parameter_value..."
 
     return 1
   fi
@@ -522,9 +522,10 @@ function nf_machine_data() {
   done
 
   # Extract essential information
-  MACHINE_ID=${PARAMETERS["machine_id"]:-"nipro_surdial_x"}
-  SERIAL_NUMBER=${PARAMETERS["serial_number"]:-"4A0312620B59"}
-  PATIENT_ID=${PARAMETERS["patient_id"]:-"1234567890"}
+  MACHINE_ID=${PARAMETERS[machine_id]:-"nipro_surdial_x"}
+  DEVICE_ID=${PARAMETERS[link_id]:-"bd0e842c-4866-676d-ec84-89da3f2707c2"}
+  SERIAL_NUMBER=${PARAMETERS[serial_number]:-"4A0312620B59"}
+  PATIENT_ID=${PARAMETERS[patient_id]:-"1234567890"}
 
   # Convert remaining parameters into JSON
   unset 'PARAMETERS[machine_id]'
@@ -534,7 +535,7 @@ function nf_machine_data() {
     echo "{\"name\": \"${KEY}\",\"value\": \"${VALUE}\"}"
   done | paste -sd "," -)
 
-  DATA="{\"timestamp\":\"$(date -u)\",\"device_id\":\"cd0c0bc1-3df3-3754-15c2-66bf3b0c5963\",\"machine_id\":\"${MACHINE_ID}\",\"serial_number\":\"${SERIAL_NUMBER}\",\"patient_id\":\"${PATIENT_ID}\",\"parameters\":[${PARAMETERS}]}"
+  DATA="{\"timestamp\":\"$(date -u)\",\"device_id\":\"${DEVICE_ID}\",\"machine_id\":\"${MACHINE_ID}\",\"serial_number\":\"${SERIAL_NUMBER}\",\"patient_id\":\"${PATIENT_ID}\",\"parameters\":[${PARAMETERS}]}"
 
   nf_post command/IntegrateMachineData "${DATA}"
 }
