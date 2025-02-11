@@ -488,9 +488,11 @@ function nf_diffcop() {
   git diff --staged --name-only | grep '\.rb$' | xargs rubocop --autocorrect-all --force-exclusion
 }
 
-# Autocorrect RuboCop offenses in changed files (compared to master)
-function nf_maincop() {
-  git diff-tree -r --no-commit-id --name-only $(git_main_branch)@\{u\} head | xargs ls -1 2>/dev/null | xargs rubocop --autocorrect-all --force-exclusion
+# Autocorrect RuboCop offenses in changed files (compared to a branch)
+function nf_branchcop() {
+  BRANCH=${1:-$(git_main_branch)}
+
+  git diff-tree -r --no-commit-id --name-only ${BRANCH}@\{u\} head | xargs ls -1 2>/dev/null | xargs rubocop --autocorrect-all --force-exclusion
 }
 
 # Send a machine data message
