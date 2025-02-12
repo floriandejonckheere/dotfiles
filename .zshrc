@@ -132,6 +132,7 @@ esac
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias mvi="mv -i"
 alias gcnn="git commit --no-verify"
+alias gs='gst'
 
 # Override docker-compose command
 alias docker-compose='docker compose'
