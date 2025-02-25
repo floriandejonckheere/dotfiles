@@ -79,7 +79,7 @@ SAVEHIST=1000000
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(1password aliases asdf branch brew bundler colorize cp docker docker-compose git github gitignore gpg-agent history iterm2 kubectl macos rails rake rbenv ruby ssh-agent zsh-autosuggestions)
+plugins=(1password aliases branch brew bundler colorize cp docker docker-compose git github gitignore gpg-agent history iterm2 kubectl macos rails rake rbenv ruby ssh-agent zsh-autosuggestions)
 
 # Enable iterm2 shell integration
 zstyle :omz:plugins:iterm2 shell-integration yes
