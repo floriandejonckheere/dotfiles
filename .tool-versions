@@ -1,5 +1,5 @@
 kubectl 1.31.1
-nodejs 22.2.0
+nodejs 23.8.0
 ruby 3.4.1
 argocd 2.12.3
 azure-cli 2.64.0
