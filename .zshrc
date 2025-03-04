@@ -154,4 +154,5 @@ export NPM_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut
 # Add node_modules to PATH
 PATH="${PATH}:./node_modules/.bin"
 
-. ~/.nephroflow
+# Import NephroFlow CLI
+source ~/.nf/nf.sh
