@@ -40,11 +40,6 @@ asdf install nodejs latest
 asdf global nodejs latest
 asdf local nodejs latest
 
-asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
-asdf install ruby latest
-asdf global ruby latest
-asdf local ruby latest
-
 asdf plugin-add argocd https://github.com/beardix/asdf-argocd.git
 asdf install argocd latest
 asdf global argocd latest
@@ -59,6 +54,14 @@ asdf plugin-add python https://github.com/asdf-community/asdf-python
 asdf install python latest
 asdf global python latest
 asdf local python latest
+```
+
+Install RVM:
+
+```
+gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+curl -sSL https://get.rvm.io | bash
+rvm install ruby-3.4.2
 ```
 
 Install Oh My Zsh and plugins:
