@@ -137,6 +137,9 @@ alias gs='gst'
 # Override docker-compose command
 alias docker-compose='docker compose'
 
+# Analyze Docker images
+alias dive='docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive'
+
 # Functions
 function grbiom() { git rebase --interactive origin/$(git_main_branch); }
 function gfarbom() { git fetch --all && git rebase origin/$(git_main_branch); }
