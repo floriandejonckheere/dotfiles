@@ -34,7 +34,7 @@ asdf install python latest
 
 asdf plugin-add teleport-community https://github.com/MaloPolese/asdf-teleport-community.git
 asdf install teleport-community 14.3.36
-asdf install teleport-community 9.3.26
+OS=darwin ARCH=amd64 asdf install teleport-community 9.3.26
 ```
 
 Install RVM:
