@@ -19,36 +19,22 @@ Install tools:
 ```
 asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
 asdf install kubectl latest
-asdf global kubectl latest
-asdf local kubectl latest
 
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs latest
-asdf global nodejs latest
-asdf local nodejs latest
 
 asdf plugin-add argocd https://github.com/beardix/asdf-argocd.git
 asdf install argocd latest
-asdf global argocd latest
-asdf local argocd latest
 
 asdf plugin-add azure-cli https://github.com/EcoMind/asdf-azure-cli
 asdf install azure-cli latest
-asdf global azure-cli latest
-asdf local azure-cli latest
 
 asdf plugin-add python https://github.com/asdf-community/asdf-python
 asdf install python latest
-asdf global python latest
-asdf local python latest
 
 asdf plugin-add teleport-community https://github.com/MaloPolese/asdf-teleport-community.git
 asdf install teleport-community 14.3.36
-asdf global teleport-community 14.3.36
-asdf local teleport-community 14.3.36
 asdf install teleport-community 9.3.26
-asdf global teleport-community 9.3.26
-asdf local teleport-community 9.3.26
 ```
 
 Install RVM:
