@@ -4,3 +4,4 @@ ruby 3.4.1
 argocd 2.12.3
 azure-cli 2.64.0
 python 3.12.6
+teleport-community 14.3.36
