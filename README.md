@@ -14,13 +14,6 @@ Install dependencies:
 brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq gh watch ffmpeg
 ```
 
-Install teleport:
-
-```sh
-curl -O https://cdn.teleport.dev/teleport-9.3.26.pkg
-sudo open teleport-9.3.26.pkg
-```
-
 Install tools:
 
 ```
@@ -48,6 +41,14 @@ asdf plugin-add python https://github.com/asdf-community/asdf-python
 asdf install python latest
 asdf global python latest
 asdf local python latest
+
+asdf plugin-add teleport-community https://github.com/MaloPolese/asdf-teleport-community.git
+asdf install teleport-community 14.3.36
+asdf global teleport-community 14.3.36
+asdf local teleport-community 14.3.36
+asdf install teleport-community 9.3.26
+asdf global teleport-community 9.3.26
+asdf local teleport-community 9.3.26
 ```
 
 Install RVM:
