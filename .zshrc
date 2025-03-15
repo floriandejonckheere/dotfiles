@@ -133,6 +133,7 @@ esac
 alias mvi="mv -i"
 alias gcnn="git commit --no-verify"
 alias gs='gst'
+alias gt='git tag'
 
 # Override docker-compose command
 alias docker-compose='docker compose'
