@@ -134,6 +134,7 @@ alias mvi="mv -i"
 alias gcnn="git commit --no-verify"
 alias gs='gst'
 alias gt='git tag'
+alias gdn='git diff --name-only'
 
 # Override docker-compose command
 alias docker-compose='docker compose'
