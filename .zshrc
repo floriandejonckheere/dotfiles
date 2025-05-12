@@ -136,6 +136,9 @@ alias gcnn="git commit --no-verify"
 alias gs='gst'
 alias gt='git tag'
 alias gdn='git diff --name-only'
+alias gdco='git diff --name-only | xargs git checkout -- '
+alias gdcan='git diff --cached --name-only'
+alias gdcaco='git diff --cached --name-only | xargs git checkout -- '
 
 # Override docker-compose command
 alias docker-compose='docker compose'
