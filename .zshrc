@@ -93,6 +93,7 @@ unsetopt share_history
 setopt no_share_history
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export REDIS_URL="redis://localhost:6379/0"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
