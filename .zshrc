@@ -146,6 +146,7 @@ alias dive='docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wa
 function grbiom() { git rebase --interactive origin/$(git_main_branch); }
 function gfarbom() { git fetch --all && git rebase origin/$(git_main_branch); }
 function gfarbiom() { git fetch --all && git rebase --interactive origin/$(git_main_branch); }
+function ggrep() { git grep "${1}" $(git rev-list --all -- "${2}") -- "${2}" }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -159,7 +160,7 @@ export NPM_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut
 # Add node_modules to PATH
 PATH="${PATH}:./node_modules/.bin"
 
-# Import NephroFlow CLI
+# Import NephroFlow Scripts
 source ~/.nf/nf.sh
 nf_initials fd > /dev/null
 
