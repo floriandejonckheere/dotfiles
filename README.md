@@ -32,8 +32,8 @@ asdf install azure-cli latest
 asdf plugin-add python https://github.com/asdf-community/asdf-python
 asdf install python latest
 
-asdf plugin-add teleport-community https://github.com/MaloPolese/asdf-teleport-community.git
-asdf install teleport-community 14.3.36
+asdf plugin-add teleport-ent https://github.com/highb/asdf-teleport-ent.git
+asdf install teleport-ent 17.4.9
 OS=darwin ARCH=amd64 asdf install teleport-community 9.3.26
 ```
 
