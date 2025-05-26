@@ -163,6 +163,7 @@ function ggrep() { git grep "${1}" $(git rev-list --all -- "${2}") -- "${2}" }
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export ENV=development
+export RUBY_DEBUG_ENABLE=1
 
 export BUNDLER_USERNAME=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 2 | cut -b 3-)
 export BUNDLER_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 3 | rev | cut -b 2- | rev)
