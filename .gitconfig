@@ -1,4 +1,6 @@
 # This is Git's per-user configuration file.
+[core]
+	editor = rubymine --wait
 [user]
 	name = Florian Dejonckheere
 	email = florian@floriandejonckheere.be
