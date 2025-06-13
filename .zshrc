@@ -140,6 +140,7 @@ alias gdn='git diff --name-only'
 alias gdco='git diff --name-only | xargs git checkout -- '
 alias gdcan='git diff --cached --name-only'
 alias gdcaco='git diff --cached --name-only | xargs git checkout -- '
+alias grewip='gunwip && gwip'
 
 alias ..="cd .."
 alias ...="cd ../.."
