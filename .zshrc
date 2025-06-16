@@ -136,6 +136,7 @@ alias mvi="mv -i"
 alias gcnn="git commit --no-verify"
 alias gs='gst'
 alias gt='git tag'
+alias gtd='git tag --delete'
 alias gdn='git diff --name-only'
 alias gdco='git diff --name-only | xargs git checkout -- '
 alias gdcan='git diff --cached --name-only'
