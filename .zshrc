@@ -171,6 +171,12 @@ export BUNDLER_USERNAME=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/confi
 export BUNDLER_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 3 | rev | cut -b 2- | rev)
 export NPM_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 3 | rev | cut -b 2- | rev)
 
+# Use more performant Docker build system
+export COMPOSE_BAKE=true
+
+# Do not prompt when downloading tools
+export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+
 # Add node_modules to PATH
 PATH="${PATH}:./node_modules/.bin"
 
