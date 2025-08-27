@@ -159,7 +159,8 @@ alias dive='docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wa
 function grbiom() { git rebase --interactive origin/$(git_main_branch); }
 function gfarbom() { git fetch --all && git rebase origin/$(git_main_branch); }
 function gfarbiom() { git fetch --all && git rebase --interactive origin/$(git_main_branch); }
-function ggrep() { git grep "${1}" $(git rev-list --all -- "${2}") -- "${2}" }
+function ggrep() { git grep "${1}" $(git rev-list --all -- "${2}") -- "${2}"; }
+function grbiom-jb() { GIT_EDITOR="rubymine --wait" grbiom; }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
