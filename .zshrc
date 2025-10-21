@@ -181,9 +181,5 @@ export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 # Add node_modules to PATH
 PATH="${PATH}:./node_modules/.bin"
 
-# Import NephroFlow Scripts
-source ~/.nf/nf.sh
-nf_initials fd > /dev/null
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
