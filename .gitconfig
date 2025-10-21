@@ -2,7 +2,7 @@
 [user]
 	name = Florian Dejonckheere
 	email = florian@floriandejonckheere.be
-	signingKey = 2BEDDCA4D7711645
+	signingKey = 41AAE75CC027FA6D1CE5F0D5E7CCC666F2D5BFC2
 [commit]
 	gpgsign = true
 [gpg]
