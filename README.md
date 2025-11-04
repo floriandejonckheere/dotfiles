@@ -17,24 +17,11 @@ brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rb
 Install tools:
 
 ```
-asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
-asdf install kubectl latest
-
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs latest
 
-asdf plugin-add argocd https://github.com/beardix/asdf-argocd.git
-asdf install argocd latest
-
-asdf plugin-add azure-cli https://github.com/EcoMind/asdf-azure-cli
-asdf install azure-cli latest
-
 asdf plugin-add python https://github.com/asdf-community/asdf-python
 asdf install python latest
-
-asdf plugin-add teleport-ent https://github.com/highb/asdf-teleport-ent.git
-asdf install teleport-ent 17.4.9
-OS=darwin ARCH=amd64 asdf install teleport-community 9.3.26
 ```
 
 Install RVM:
@@ -42,7 +29,7 @@ Install RVM:
 ```
 gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash
-rvm install ruby-3.4.2
+rvm install ruby-3.4.7
 ```
 
 Install Oh My Zsh and plugins:
