@@ -171,6 +171,7 @@ export RUBY_DEBUG_ENABLE=1
 export BUNDLER_USERNAME=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 2 | cut -b 3-)
 export BUNDLER_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 3 | rev | cut -b 2- | rev)
 export NPM_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 3 | rev | cut -b 2- | rev)
+export SENTRY_AUTH_TOKEN=$(grep token= ~/.sentryclirc | cut -d'=' -f2)
 
 # Use more performant Docker build system
 export COMPOSE_BAKE=true
