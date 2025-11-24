@@ -158,7 +158,9 @@ alias dive='docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wa
 # Functions
 function grbiom() { git rebase --interactive origin/$(git_main_branch); }
 function gfarbom() { git fetch --all && git rebase origin/$(git_main_branch); }
+function gfarb() { git fetch --all && git rebase origin/${1}; }
 function gfarbiom() { git fetch --all && git rebase --interactive origin/$(git_main_branch); }
+function gfarbi() { git fetch --all && git rebase --interactive origin/${1}; }
 function ggrep() { git grep "${1}" $(git rev-list --all -- "${2}") -- "${2}"; }
 function grbiom-jb() { GIT_EDITOR="rubymine --wait" grbiom; }
 
