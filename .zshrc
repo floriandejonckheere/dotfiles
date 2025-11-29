@@ -179,7 +179,18 @@ export COMPOSE_BAKE=true
 export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 
 # Add node_modules to PATH
-PATH="${PATH}:./node_modules/.bin"
+PATH="${PATH}:./node_modules/.bin:$HOME/.local/bin"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add Homebrew to PATH
+export PATH="/opt/homebrew/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/florian/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/florian/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/florian/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/florian/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
