@@ -142,6 +142,7 @@ alias gdco='git diff --name-only | xargs git checkout -- '
 alias gdcan='git diff --cached --name-only'
 alias gdcaco='git diff --cached --name-only | xargs git checkout -- '
 alias grewip='gunwip && gwip'
+alias gdwip='git commit --no-verify --no-gpg-sign --message "--wip-- [skip ci]"'
 
 alias ..="cd .."
 alias ...="cd ../.."
