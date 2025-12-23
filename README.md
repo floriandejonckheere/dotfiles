@@ -11,7 +11,7 @@ Install Homebrew:
 Install dependencies:
 
 ```sh
-brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq gh watch ffmpeg rsync htop
+brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq gh watch ffmpeg rsync htop gemini-cli
 brew install --cask qlvideo
 ```
 
@@ -71,4 +71,11 @@ Configure Nano:
 
 ```sh
 echo 'include "'"$(brew --cellar nano)"'/*/share/nano/*.nanorc"' > ~/.nanorc
+```
+
+Configure Gemini by adding the API key to `~/.gemini/config`:
+
+```sh
+mkdir -p ~/.gemini
+echo "GEMINI_API_KEY=my_key" > ~/.gemini/config
 ```

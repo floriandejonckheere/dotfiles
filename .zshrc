@@ -172,6 +172,8 @@ export BUNDLER_USERNAME=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/confi
 export BUNDLER_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 3 | rev | cut -b 2- | rev)
 export NPM_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut -d: -f 3 | rev | cut -b 2- | rev)
 
+export GEMINI_API_KEY=$(grep GEMINI_API_KEY ~/.bundle/config | cut -d: -f 2 | cut -b 3-)
+
 # Use more performant Docker build system
 export COMPOSE_BAKE=true
 
