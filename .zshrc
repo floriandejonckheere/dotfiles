@@ -149,6 +149,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+alias yarn="corepack yarn"
+
 # Override docker-compose command
 alias docker-compose='docker compose'
 
