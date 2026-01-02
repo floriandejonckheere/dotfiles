@@ -11,7 +11,7 @@ Install Homebrew:
 Install dependencies:
 
 ```sh
-brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq gh watch ffmpeg rsync htop gemini-cli
+brew install git wget gpg2 gnupg pinentry-mac nano nanorc coreutils curl asdf rbenv ruby-build jq gh watch ffmpeg rsync htop gemini-cli postgresql
 brew install --cask qlvideo
 ```
 
