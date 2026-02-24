@@ -79,3 +79,10 @@ Configure Gemini by adding the API key to `~/.gemini/config`:
 mkdir -p ~/.gemini
 echo "GEMINI_API_KEY=my_key" > ~/.gemini/config
 ```
+
+Configure key repeat beyond normal minima:
+
+```sh
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
+```
