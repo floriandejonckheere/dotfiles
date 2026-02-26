@@ -83,6 +83,6 @@ echo "GEMINI_API_KEY=my_key" > ~/.gemini/config
 Configure key repeat beyond normal minima:
 
 ```sh
-defaults write -g InitialKeyRepeat -int 10
-defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -float 12.5 # Minimum you can set in the UI is 15 (225ms)
+defaults write -g KeyRepeat -float 1.0 # Minimum you can set in the UI is 2.0 (30ms)
 ```
