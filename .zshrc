@@ -177,6 +177,9 @@ export NPM_TOKEN=$(grep BUNDLE_RUBYGEMS__PKG__GITHUB__COM ~/.bundle/config | cut
 # Gemini API key
 [[ ! -f ~/.gemini/config ]] || export GEMINI_API_KEY=$(grep GEMINI_API_KEY ~/.gemini/config | cut -d= -f2)
 
+# Other secrets
+[[ ! -f ~/.secrets ]] || source ~/.secrets
+
 # Use more performant Docker build system
 export COMPOSE_BAKE=true
 
