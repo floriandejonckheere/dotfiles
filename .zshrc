@@ -190,12 +190,8 @@ PATH="${PATH}:./node_modules/.bin"
 source ~/.nf/nf.sh
 nf_initials fd > /dev/null
 
-# rv
-eval "$(/opt/homebrew/bin/rv shell init zsh)"
-eval "$(/opt/homebrew/bin/rv shell completions zsh)"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # opencode
 export PATH=/Users/florian/.opencode/bin:$PATH
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-#export PATH="$PATH:$HOME/.rvm/bin"
