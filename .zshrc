@@ -196,3 +196,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/opt/homebrew/bin:$PATH"
 
 . "$HOME/.local/bin/env"
+
+# bun completions
+[ -s "/Users/florian/.bun/_bun" ] && source "/Users/florian/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
